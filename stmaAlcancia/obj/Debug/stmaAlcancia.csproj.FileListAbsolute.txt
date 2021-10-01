@@ -1,0 +1,12 @@
+C:\Users\juan0\Documents\Drive Universidad\Academico\Informatica\POO\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\bin\Debug\libAlcancia.dll
+C:\Users\juan0\Documents\Drive Universidad\Academico\Informatica\POO\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\bin\Debug\libAlcancia.pdb
+C:\Users\juan0\Documents\Drive Universidad\Academico\Informatica\POO\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\stmaAlcancia.csprojAssemblyReference.cache
+C:\Users\juan0\Documents\Drive Universidad\Academico\Informatica\POO\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\stmaAlcancia.csproj.CoreCompileInputs.cache
+C:\Users\juan0\Documents\Drive Universidad\Academico\Informatica\POO\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\libAlcancia.dll
+C:\Users\juan0\Documents\Drive Universidad\Academico\Informatica\POO\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\libAlcancia.pdb
+C:\Users\juan0\Google Drive Unicauca\Academico\Informatica\Programacion orientada a objeto\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\bin\Debug\libAlcancia.dll
+C:\Users\juan0\Google Drive Unicauca\Academico\Informatica\Programacion orientada a objeto\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\bin\Debug\libAlcancia.pdb
+C:\Users\juan0\Google Drive Unicauca\Academico\Informatica\Programacion orientada a objeto\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\stmaAlcancia.csproj.AssemblyReference.cache
+C:\Users\juan0\Google Drive Unicauca\Academico\Informatica\Programacion orientada a objeto\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\stmaAlcancia.csproj.CoreCompileInputs.cache
+C:\Users\juan0\Google Drive Unicauca\Academico\Informatica\Programacion orientada a objeto\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\libAlcancia.dll
+C:\Users\juan0\Google Drive Unicauca\Academico\Informatica\Programacion orientada a objeto\Teoria POO\juanantec V2\solAlcancia\stmaAlcancia\obj\Debug\libAlcancia.pdb
