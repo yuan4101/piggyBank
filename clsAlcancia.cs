@@ -13,22 +13,22 @@ namespace appAlcancia.Dominio
         private int atrCapacidadMonedas;
         private int atrCapacidadBilletes;
         private string atrDivisa;
-        private List<int> atrDenominacionesMonedas;
-        private List<int> atrDenominacionesBilletes;
+        private List<int> atrDenominacionesMonedas = new List<int>();
+        private List<int> atrDenominacionesBilletes = new List<int>();
         #endregion
         #region Asociativos
         private clsAlcancia atrAlcancia;
-        private List<clsMoneda> atrMonedas;
-        private List<clsBillete> atrBilletes;
+        private List<clsMoneda> atrMonedas = new List<clsMoneda>();
+        private List<clsBillete> atrBilletes = new List<clsBillete>();
         #endregion
         #region Derivables
         private int atrSaldoTotal;
         private int atrSaldoMonedas;
         private int atrSaldoBilletes;
-        private List<int> atrSaldoDenominacionesMonedas;
-        private List<int> atrSaldoDenominacionesBilletes;
-        private List<int> atrConteoDenominacionesMonedas;
-        private List<int> atrConteoDenominacionesBilletes;
+        private List<int> atrSaldoDenominacionesMonedas = new List<int>();
+        private List<int> atrSaldoDenominacionesBilletes = new List<int>();
+        private List<int> atrConteoDenominacionesMonedas = new List<int>();
+        private List<int> atrConteoDenominacionesBilletes = new List<int>();
         #endregion
         #endregion
         #region Operaciones
@@ -137,6 +137,10 @@ namespace appAlcancia.Dominio
             atrDenominacionesBilletes = prmColeccion;
             return true;
         }
+        public bool calcularEstadoCuenta()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
         #region Transacciones
         public bool consignar(clsMoneda prmItem)
@@ -147,7 +151,14 @@ namespace appAlcancia.Dominio
         {
             throw new NotImplementedException();
         }
-
+        public bool retirarMoneda(string prmIDO)
+        {
+            throw new NotImplementedException();
+        }
+        public bool retirarBillete(string prmSerial)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
         #endregion
     }

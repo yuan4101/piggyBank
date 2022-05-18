@@ -20,5 +20,47 @@ namespace appAlcancia.Dominio
         protected clsAlcancia atrAlcancia;
         #endregion
         #endregion
+        #region Operaciones
+        #region Constructor
+        public clsMoneda(string prmIDO, int prmDenominacion, int prmAño)
+        {
+            atrIDO = prmIDO;
+            atrDenominacion = prmDenominacion;
+            atrAño = prmAño;
+        }
+        #endregion
+        #region Accesores
+        public int darDenominacion()
+        {
+            return atrDenominacion;
+        }
+        public int darAño()
+        {
+            return atrAño;
+        }
+        public string darIDO()
+        {
+            return atrIDO;
+        }
+        #endregion
+        #region Mutadores
+        public bool ponerDenominacion(int prmValor)
+        {
+            atrDenominacion = prmValor;
+            return true;
+        }
+        public bool ponerAño(int prmValor)
+        {
+            atrAño = prmValor;
+            return true;
+        }
+        #endregion
+        #region Testing
+        public void generar()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+        #endregion
     }
 }
