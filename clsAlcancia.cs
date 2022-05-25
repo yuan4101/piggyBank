@@ -33,6 +33,9 @@ namespace appAlcancia.Dominio
         #endregion
         #region Operaciones
         #region Constructor
+        public clsAlcancia() 
+        {
+        }
         public clsAlcancia(string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
         {
             //TO DO
@@ -139,7 +142,8 @@ namespace appAlcancia.Dominio
         }
         public bool calcularEstadoCuenta()
         {
-            throw new NotImplementedException();
+            //TODO : IMPLEMENTAR
+            return false;
         }
         #endregion
         #region Transacciones

@@ -22,7 +22,15 @@ namespace appAlcancia.Dominio
         #region Singleton
         public static clsSistema darInstancia()
         {
-            throw new NotImplementedException();
+            if (atrInstancia == null) 
+                return atrInstancia = new clsSistema();
+            return atrInstancia;
+        }
+        #endregion
+        #region Accesores
+        public clsAlcancia darAlcancia() 
+        {
+            return atrAlcancia;
         }
         #endregion
         #region CRUDS
@@ -91,14 +99,14 @@ namespace appAlcancia.Dominio
         public void generar()
         {
             atrMonedas = new List<clsMoneda>();
-            atrMonedas.Add(new clsMoneda("0", 100, 1992));
-            atrMonedas.Add(new clsMoneda("1", 500, 1998));
-            atrMonedas.Add(new clsMoneda("5", 200, 1984));
+            atrMonedas.Add(new clsMoneda("0", "COP", 100, 1992));
+            atrMonedas.Add(new clsMoneda("1", "COP", 500, 1998));
+            atrMonedas.Add(new clsMoneda("5", "COP", 200, 1984));
 
             atrBilletes = new List<clsBillete>();
-            atrBilletes.Add(new clsBillete("ABC123", 1000, 1992, 2, 20));
-            atrBilletes.Add(new clsBillete("CDF456", 500, 1992, 2, 20));
-            atrBilletes.Add(new clsBillete("ABC789", 100000, 2020, 3, 13));
+            atrBilletes.Add(new clsBillete("ABC123", "COP", 1000, 1992, 2, 20));
+            atrBilletes.Add(new clsBillete("CDF456", "COP", 500, 1992, 2, 20));
+            atrBilletes.Add(new clsBillete("ABC789", "COP", 100000, 2020, 3, 13));
 
             atrAlcancia = new clsAlcancia("COP", 10, 12, new List<int> { 100, 500 }, new List<int> { 500, 1000 });
 

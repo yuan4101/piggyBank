@@ -15,6 +15,7 @@ namespace appAlcancia.Dominio
         #region Propios
         protected int atrDenominacion;
         protected int atrAño;
+        protected string atrDivisa;
         #endregion
         #region Asociativos
         protected clsAlcancia atrAlcancia;
@@ -22,11 +23,13 @@ namespace appAlcancia.Dominio
         #endregion
         #region Operaciones
         #region Constructor
-        public clsMoneda(string prmIDO, int prmDenominacion, int prmAño)
+        public clsMoneda() { }
+        public clsMoneda(string prmIDO, string prmDivisa,int prmDenominacion, int prmAño)
         {
             atrIDO = prmIDO;
             atrDenominacion = prmDenominacion;
             atrAño = prmAño;
+            atrDivisa = prmDivisa;
         }
         #endregion
         #region Accesores
@@ -42,6 +45,14 @@ namespace appAlcancia.Dominio
         {
             return atrIDO;
         }
+        public string darDivisa() 
+        {
+            return atrDivisa;
+        }
+        public clsAlcancia darAlcancia() 
+        {
+            return atrAlcancia;
+        }
         #endregion
         #region Mutadores
         public bool ponerDenominacion(int prmValor)
@@ -54,11 +65,20 @@ namespace appAlcancia.Dominio
             atrAño = prmValor;
             return true;
         }
+        public bool ponerDivisa(string prmDivisa) 
+        {
+            atrDivisa = prmDivisa;
+            return true;
+        }
         #endregion
         #region Testing
         public void generar()
         {
-            throw new NotImplementedException();
+            atrIDO = "123";
+            atrDenominacion = 1000;
+            atrAño = 1993;
+            atrDivisa = "COP";
+            atrAlcancia = new clsAlcancia();
         }
         #endregion
         #endregion
