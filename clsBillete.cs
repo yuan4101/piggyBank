@@ -19,6 +19,8 @@ namespace appAlcancia.Dominio
             atrMes = prmMes;
             atrDia = prmDia;
         }
+        public clsBillete() {
+        }
         #endregion
         #region Accesores
         public string darSerial()
@@ -37,13 +39,21 @@ namespace appAlcancia.Dominio
         #region Mutadores
         public bool ponerMes(int prmValor)
         {
-            atrMes = prmValor;
-            return true;
+            if (clsParametrizador.esValidoMes(prmValor))
+            {
+                atrMes = prmValor;
+                return true;
+            }
+            return false;
         }
-        public bool  ponerDia(int prmValor)
+        public bool ponerDia(int prmValor)
         {
-            atrDia = prmValor;
-            return true;
+            if (clsParametrizador.esValidoDia(prmValor))
+            {
+                atrDia = prmValor;
+                return true;
+            }
+            return false;
         }
         public bool ponerSerial(string prmValor)
         {
@@ -54,7 +64,13 @@ namespace appAlcancia.Dominio
         #region Testing
         public new void generar()
         {
-            throw new NotImplementedException();
+            atrDia = 4;
+            atrMes = 11;
+            atrAño = 1990;
+            atrIDO = "123";
+            atrDenominacion = 1000;
+            atrDivisa = "COP";
+            atrAlcancia = new clsAlcancia();
         }
         #endregion
         #endregion

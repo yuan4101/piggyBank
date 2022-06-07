@@ -164,6 +164,46 @@ namespace appAlcancia.Dominio
             throw new NotImplementedException();
         }
         #endregion
+        #region Testing
+        public void generar() 
+        {
+            atrDivisa = "COP";
+            #region Monedas
+            atrCapacidadMonedas = 10;
+            atrDenominacionesMonedas = new List<int> { 1000, 500, 200, 100, 50 };
+            atrSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100, 0 };
+            atrConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1, 0 };
+
+            atrMonedas.Add(new clsMoneda("1", "COP", 1000, 1990));
+            atrMonedas.Add(new clsMoneda("2", "COP", 1000, 1992));
+            atrMonedas.Add(new clsMoneda("3", "COP", 500, 1990));
+            atrMonedas.Add(new clsMoneda("4", "COP", 500, 19908));
+            atrMonedas.Add(new clsMoneda("6", "COP", 200, 1992));
+            atrMonedas.Add(new clsMoneda("7", "COP", 200, 1984));
+            atrMonedas.Add(new clsMoneda("8", "COP", 100, 1988));
+
+            foreach (clsMoneda varObjeto in atrMonedas)
+                varObjeto.ponerAlcancia(this);
+
+            #endregion
+            #region Billetes
+            atrCapacidadBilletes = 10;
+            atrDenominacionesBilletes = new List<int> { 1000, 2000, 5000, 10000 };
+            atrSaldoDenominacionesBilletes = new List<int> { 1000, 2000, 5000, 10000 };
+            atrConteoDenominacionesMonedas = new List<int> { 1, 1, 1, 1 };
+
+            atrBilletes.Add(new clsBillete("ABC123", "COP", 1000, 1990, 11, 5));
+            atrBilletes.Add(new clsBillete("QWE789", "COP", 2000, 1992, 7, 18));
+            atrBilletes.Add(new clsBillete("CDE456", "COP", 5000, 1990, 4, 16));
+            atrBilletes.Add(new clsBillete("YUI900", "COP", 10000, 1988, 12, 27));
+
+            foreach (clsBillete varObjeto in atrBilletes)
+                varObjeto.ponerAlcancia(this);
+
+            #endregion
+
+        }
+        #endregion
         #endregion
     }
 }

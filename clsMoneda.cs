@@ -57,17 +57,30 @@ namespace appAlcancia.Dominio
         #region Mutadores
         public bool ponerDenominacion(int prmValor)
         {
-            atrDenominacion = prmValor;
-            return true;
+            if (clsParametrizador.esValidoRangoDenominacion(prmValor))
+            {
+                atrDenominacion = prmValor;
+                return true;
+            }
+            return false;
         }
         public bool ponerAño(int prmValor)
         {
-            atrAño = prmValor;
-            return true;
+            if (clsParametrizador.esValidoAno(prmValor))
+            {
+                atrAño = prmValor;
+                return true;
+            }
+            return false;
         }
-        public bool ponerDivisa(string prmDivisa) 
+        public bool ponerDivisa(string prmDivisa)
         {
             atrDivisa = prmDivisa;
+            return true;
+        }
+        public bool ponerAlcancia(clsAlcancia prmObjeto) 
+        {
+            atrAlcancia = prmObjeto;
             return true;
         }
         #endregion
