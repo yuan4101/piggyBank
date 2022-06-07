@@ -77,7 +77,7 @@ namespace appAlcancia.Servicios.Pruebas
             #endregion
             #region Probar y Comprobar
             Assert.IsTrue(testMoneda.ponerAño(1990));
-            Assert.AreEqual(1993, testMoneda.darAño());
+            Assert.AreEqual(1990, testMoneda.darAño());
             Assert.AreEqual("123", testMoneda.darIDO());
             Assert.AreEqual(1000, testMoneda.darDenominacion());
             Assert.AreEqual("COP", testMoneda.darDivisa());
@@ -108,9 +108,9 @@ namespace appAlcancia.Servicios.Pruebas
             #endregion
             #region Probar y Comprobar
             Assert.IsTrue(testMoneda.ponerDenominacion(500));
-            Assert.AreEqual(1990, testMoneda.darAño());
+            Assert.AreEqual(1993, testMoneda.darAño());
             Assert.AreEqual("123", testMoneda.darIDO());
-            Assert.AreEqual(1000, testMoneda.darDenominacion());
+            Assert.AreEqual(500, testMoneda.darDenominacion());
             Assert.AreEqual("COP", testMoneda.darDivisa());
             Assert.IsNotNull(testMoneda.darAlcancia());
             #endregion
@@ -125,8 +125,8 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.IsTrue(testMoneda.ponerDivisa("USD"));
             Assert.AreEqual(0, testMoneda.darAño());
             Assert.IsNull(testMoneda.darIDO());
-            Assert.AreEqual(500, testMoneda.darDenominacion());
-            Assert.IsNull(testMoneda.darDivisa());
+            Assert.AreEqual(0, testMoneda.darDenominacion());
+            Assert.AreEqual("USD", testMoneda.darDivisa());
             Assert.IsNull(testMoneda.darAlcancia());
             #endregion
         }
@@ -139,10 +139,10 @@ namespace appAlcancia.Servicios.Pruebas
             #endregion
             #region Probar y Comprobar
             Assert.IsTrue(testMoneda.ponerDivisa("USD"));
-            Assert.AreEqual(1990, testMoneda.darAño());
+            Assert.AreEqual(1993, testMoneda.darAño());
             Assert.AreEqual("123", testMoneda.darIDO());
             Assert.AreEqual(1000, testMoneda.darDenominacion());
-            Assert.AreEqual("COP", testMoneda.darDivisa());
+            Assert.AreEqual("USD", testMoneda.darDivisa());
             Assert.IsNotNull(testMoneda.darAlcancia());
             #endregion
         }

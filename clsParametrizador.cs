@@ -8,7 +8,7 @@ namespace appAlcancia.Dominio
 {
     public static class clsParametrizador
     {
-        private static List<int> atrRangoAno = new List<int>() { 1990, 2022 };
+        private static List<int> atrRangoAño = new List<int>() { 1990, 2022 };
         private static List<int> atrRangoMes = new List<int>() { 1, 12 };
         private static List<int> atrRangoDia = new List<int>() { 1, 31 };
         private static List<int> atrRangoDenominacion = new List<int>() { 1, 1000000 };
@@ -29,7 +29,7 @@ namespace appAlcancia.Dominio
         }
         public static bool esValidoAno(int prmValor)
         {
-            if (prmValor >= atrRangoAno[0] && prmValor <= atrRangoAno[1])
+            if (prmValor >= atrRangoAño[0] && prmValor <= atrRangoAño[1])
                 return true;
             return false;
         }
