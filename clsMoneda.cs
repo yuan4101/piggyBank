@@ -10,6 +10,7 @@ namespace appAlcancia.Dominio
     {
         #region Atributos
         #region IDO
+        protected string atrOwnerIDO;
         protected string atrIDO;
         #endregion
         #region Propios
@@ -24,12 +25,13 @@ namespace appAlcancia.Dominio
         #region Operaciones
         #region Constructor
         public clsMoneda() { }
-        public clsMoneda(string prmIDO, string prmDivisa,int prmDenominacion, int prmAño)
+        public clsMoneda(string prmOwnerIDO, string prmIDO, string prmDivisa,int prmDenominacion, int prmAño)
         {
+            atrOwnerIDO = prmOwnerIDO;
             atrIDO = prmIDO;
+            atrDivisa = prmDivisa;
             atrDenominacion = prmDenominacion;
             atrAño = prmAño;
-            atrDivisa = prmDivisa;
         }
         #endregion
         #region Accesores

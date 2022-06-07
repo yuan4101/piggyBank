@@ -50,6 +50,7 @@
     <Compile Include="clsMoneda.cs" />
     <Compile Include="clsSistema.cs" />
     <Compile Include="clsParametrizador.cs" />
+    <Compile Include="clsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

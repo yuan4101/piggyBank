@@ -13,7 +13,8 @@ namespace appAlcancia.Dominio
         private static clsSistema atrInstancia;
         #endregion
         #region Asociativos
-        private clsAlcancia atrAlcancia;
+        private List<clsAlcancia> atrAlcancias;
+        private List<clsUsuario> atrUsuarios;
         private List<clsMoneda> atrMonedas;
         private List<clsBillete> atrBilletes;
         #endregion
@@ -28,24 +29,27 @@ namespace appAlcancia.Dominio
         }
         #endregion
         #region Accesores
-        public clsAlcancia darAlcancia() 
+        public List<clsAlcancia> darAlcancias() 
         {
-            return atrAlcancia;
+            return atrAlcancias;
         }
         #endregion
         #region CRUDS
         #region Registrador
         public bool registrarAlcancia(string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
         {
-            throw new NotImplementedException();
+            atrAlcancias.Add(new clsAlcancia(prmDivisa, prmCapMonedas, prmCapBilletes, prmDenMonedas, prmDenBilletes));
+            return true;
         }
-        public bool registrarMoneda(string prmIDO, int prmDenominacion, int prmAño)
+        public bool registrarMoneda(string prmOwnerIDO, string prmIDO, string prmDivisa, int prmDenominacion, int prmAño)
         {
-            throw new NotImplementedException();
+            atrMonedas.Add(new clsMoneda(prmOwnerIDO, prmIDO, prmDivisa, prmDenominacion, prmAño));
+            return true;
         }
-        public bool registrarBillete(string prmSerial, int prmDenominacion, int prmAño, int prmMes, int prmDia)
+        public bool registrarBillete(string prmOwnerIDO, string prmSerial, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
-            throw new NotImplementedException();
+            atrBilletes.Add(new clsBillete(prmOwnerIDO, prmSerial, prmDivisa, prmDenominacion, prmAño, prmMes, prmDia));
+            return true;
         }
         #endregion
         #region Actualizador
@@ -95,6 +99,12 @@ namespace appAlcancia.Dominio
             throw new NotImplementedException();
         }
         #endregion
+        #region Validaciones
+        public bool login(string prmUsuario, string prmContraseña)
+        {
+            return false;
+        }
+        #endregion
         #region Testing
         public void generar()
         {
@@ -108,14 +118,15 @@ namespace appAlcancia.Dominio
             atrBilletes.Add(new clsBillete("CDF456", "COP", 500, 1992, 2, 20));
             atrBilletes.Add(new clsBillete("ABC789", "COP", 100000, 2020, 3, 13));
 
-            atrAlcancia = new clsAlcancia("COP", 10, 12, new List<int> { 100, 500 }, new List<int> { 500, 1000 });
+            atrAlcancias = new List<clsAlcancia>();
+            atrAlcancias.Add(new clsAlcancia("COP", 10, 12, new List<int> { 100, 500 }, new List<int> { 500, 1000 }));
 
-            atrAlcancia.darMonedas().Add(atrMonedas[0]);
-            atrAlcancia.darMonedas().Add(atrMonedas[1]);
-            atrAlcancia.darBilletes().Add(atrBilletes[0]);
-            atrAlcancia.darBilletes().Add(atrBilletes[1]);
+            atrAlcancias[0].darMonedas().Add(atrMonedas[0]);
+            atrAlcancias[0].darMonedas().Add(atrMonedas[1]);
+            atrAlcancias[0].darBilletes().Add(atrBilletes[0]);
+            atrAlcancias[0].darBilletes().Add(atrBilletes[1]);
 
-            atrAlcancia.calcularEstadoCuenta();
+            atrAlcancias[0].calcularEstadoCuenta();
         }
         #endregion
         #endregion
