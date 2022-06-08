@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using appAlcancia.Servicios;
 
 namespace appAlcancia.Dominio
 {
@@ -14,10 +15,13 @@ namespace appAlcancia.Dominio
         #endregion
         #region Operaciones
         #region Constructor
-        public clsBillete(string prmIDO, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia) : base(prmIDO, prmDivisa, prmDenominacion, prmAño)
+        public clsBillete(string prmIDO, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia) 
+            : base(prmIDO, prmDivisa, prmDenominacion, prmAño)
         {
-            atrMes = prmMes;
-            atrDia = prmDia;
+            if(clsParametrizador.esValidoMes(prmMes, 1))
+                atrMes = prmMes;
+            if(clsParametrizador.esValidoDia(prmDia, atrMes))
+                atrDia = prmDia;
         }
         public clsBillete() {
         }
@@ -39,7 +43,7 @@ namespace appAlcancia.Dominio
         #region Mutadores
         public bool ponerMes(int prmValor)
         {
-            if (clsParametrizador.esValidoMes(prmValor))
+            if (clsParametrizador.esValidoMes(prmValor, atrDia))
             {
                 atrMes = prmValor;
                 return true;
@@ -48,17 +52,12 @@ namespace appAlcancia.Dominio
         }
         public bool ponerDia(int prmValor)
         {
-            if (clsParametrizador.esValidoDia(prmValor))
+            if (clsParametrizador.esValidoDia(prmValor, atrMes))
             {
                 atrDia = prmValor;
                 return true;
             }
             return false;
-        }
-        public bool ponerSerial(string prmValor)
-        {
-            atrIDO = prmValor;
-            return true;
         }
         #endregion
         #region Testing

@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="uTestAlcancia.cs" />
     <Compile Include="uTestBillete.cs" />
     <Compile Include="uTestMoneda.cs" />
     <Compile Include="uTestSistema.cs" />

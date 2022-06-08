@@ -10,6 +10,16 @@ namespace appAlcancia.Servicios.Pruebas
         private clsBillete testBillete;
 
         #region Test Accesores
+        [TestMethod]
+        public void uTest()
+        {
+            #region Configurar
+            testBillete = new clsBillete();
+            testBillete.generar();
+            #endregion
+            #region Probar y Comprobar
+            #endregion
+        }
         #endregion
         #region Test Mutadores
         [TestMethod]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using appAlcancia.Servicios;
 
 namespace appAlcancia.Dominio
 {
@@ -27,8 +28,14 @@ namespace appAlcancia.Dominio
         public clsMoneda(string prmIDO, string prmDivisa,int prmDenominacion, int prmAño)
         {
             atrIDO = prmIDO;
+            
             atrDenominacion = prmDenominacion;
-            atrAño = prmAño;
+            
+            if (clsParametrizador.esValidoAño(prmAño))
+                atrAño = prmAño;
+            else
+                throw new FormatException();
+
             atrDivisa = prmDivisa;
         }
         #endregion
@@ -66,7 +73,7 @@ namespace appAlcancia.Dominio
         }
         public bool ponerAño(int prmValor)
         {
-            if (clsParametrizador.esValidoAno(prmValor))
+            if (clsParametrizador.esValidoAño(prmValor))
             {
                 atrAño = prmValor;
                 return true;

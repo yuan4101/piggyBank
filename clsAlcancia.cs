@@ -177,7 +177,7 @@ namespace appAlcancia.Dominio
             atrMonedas.Add(new clsMoneda("1", "COP", 1000, 1990));
             atrMonedas.Add(new clsMoneda("2", "COP", 1000, 1992));
             atrMonedas.Add(new clsMoneda("3", "COP", 500, 1990));
-            atrMonedas.Add(new clsMoneda("4", "COP", 500, 19908));
+            atrMonedas.Add(new clsMoneda("4", "COP", 500, 1998));
             atrMonedas.Add(new clsMoneda("6", "COP", 200, 1992));
             atrMonedas.Add(new clsMoneda("7", "COP", 200, 1984));
             atrMonedas.Add(new clsMoneda("8", "COP", 100, 1988));
