@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libAlcanciaX", "libAlcanciaX.csproj", "{D5C54F70-8F7C-403F-92DC-D334EA47CD45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winAlcanciaX", "..\winAlcanciaX\winAlcanciaX.csproj", "{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winAlcanciaX", "winAlcanciaX\winAlcanciaX.csproj", "{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

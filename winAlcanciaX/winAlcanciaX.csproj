@@ -64,12 +64,6 @@
     <Compile Include="frmRegistrarBillete.Designer.cs">
       <DependentUpon>frmRegistrarBillete.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistrarMoneda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRegistrarMoneda.Designer.cs">
-      <DependentUpon>frmRegistrarMoneda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
@@ -80,9 +74,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarBillete.resx">
       <DependentUpon>frmRegistrarBillete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistrarMoneda.resx">
-      <DependentUpon>frmRegistrarMoneda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,7 +98,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\piggyBank\libAlcanciaX.csproj">
+    <ProjectReference Include="..\libAlcanciaX.csproj">
       <Project>{d5c54f70-8f7c-403f-92dc-d334ea47cd45}</Project>
       <Name>libAlcanciaX</Name>
     </ProjectReference>

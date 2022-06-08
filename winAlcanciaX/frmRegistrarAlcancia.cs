@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using mvcComputersCompany.logica;
+using appAlcancia.Dominio;
 
 namespace mvcComputersCompany
 {
@@ -25,7 +25,7 @@ namespace mvcComputersCompany
         {
             try
             {
-                lblRegistroPortatil.Text = Portatil.RegistrarPortatil(txbSerial.Text, int.Parse(txbNit.Text), cbMarca.Text, int.Parse(txbCapacidadDisco.Text), cbTipoDisco.Text, int.Parse(txbCapacidadRam.Text), dtpFechaEnsamblaje.Value);
+                //lblRegistroPortatil.Text = Portatil.RegistrarPortatil(txbSerial.Text, int.Parse(txbNit.Text), cbMarca.Text, int.Parse(txbCapacidadDisco.Text), cbTipoDisco.Text, int.Parse(txbCapacidadRam.Text), dtpFechaEnsamblaje.Value);
                 lblRegistroPortatil.Visible = true;
             }
             catch (Exception a)
