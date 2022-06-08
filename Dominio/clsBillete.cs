@@ -14,7 +14,7 @@ namespace appAlcancia.Dominio
         #endregion
         #region Operaciones
         #region Constructor
-        public clsBillete(string prmOwnerIDO, string prmSerial, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia) : base(prmOwnerIDO, prmSerial, prmDivisa, prmDenominacion, prmAño)
+        public clsBillete(clsUsuario prmOwner, string prmSerial, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia) : base(prmOwner, prmSerial, prmDivisa, prmDenominacion, prmAño)
         {
             atrMes = prmMes;
             atrDia = prmDia;

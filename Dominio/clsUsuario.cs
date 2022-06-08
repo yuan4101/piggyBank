@@ -14,6 +14,8 @@ namespace appAlcancia.Dominio
         protected string atrNombre;
         protected string atrUsuario;
         protected string atrConstraseña;
+        protected List<clsMoneda> atrMonedas = new List<clsMoneda>();
+        protected List<clsBillete> atrBilletes = new List<clsBillete>();
         #endregion
         #endregion
         #region Operaciones
@@ -25,12 +27,33 @@ namespace appAlcancia.Dominio
             atrUsuario = prmUsuario;
             atrConstraseña = prmContraseña;
         }
+        public clsUsuario() { }
         #endregion
         #region Accesores
-
+        public string darNombre()
+        {
+            return atrNombre;
+        }
         #endregion
         #region Mutadores
-
+        public bool agregarMoneda(clsMoneda prmMoneda)
+        {
+            atrMonedas.Add(prmMoneda);
+            return true;
+        }
+        public bool agregarBillete(clsBillete prmBillete)
+        {
+            atrBilletes.Add(prmBillete);
+            return true;
+        }
+        #endregion
+        #region Validacion
+        public bool validarCredenciales(string prmUsuario, string prmContraseña)
+        {
+            if (prmUsuario == atrUsuario && prmContraseña == atrConstraseña)
+                return true;
+            return false;
+        }
         #endregion
         #region 
 

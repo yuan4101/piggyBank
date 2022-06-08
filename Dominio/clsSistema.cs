@@ -13,17 +13,17 @@ namespace appAlcancia.Dominio
         private static clsSistema atrInstancia;
         #endregion
         #region Asociativos
-        private List<clsAlcancia> atrAlcancias;
-        private List<clsUsuario> atrUsuarios;
-        private List<clsMoneda> atrMonedas;
-        private List<clsBillete> atrBilletes;
+        private List<clsAlcancia> atrAlcancias = new List<clsAlcancia>();
+        private List<clsUsuario> atrUsuarios = new List<clsUsuario>();
+        private List<clsMoneda> atrMonedas = new List<clsMoneda>();
+        private List<clsBillete> atrBilletes = new List<clsBillete>();
         #endregion
         #endregion
         #region Operaciones
         #region Singleton
         public static clsSistema darInstancia()
         {
-            if (atrInstancia == null) 
+            if (atrInstancia == null)
                 return atrInstancia = new clsSistema();
             return atrInstancia;
         }
@@ -36,19 +36,30 @@ namespace appAlcancia.Dominio
         #endregion
         #region CRUDS
         #region Registrador
+        public bool registrarUsuario(string prmIDO, string prmNombre, string prmUsuario, string prmContraseña)
+        {
+            atrUsuarios.Add(new clsUsuario(prmIDO, prmNombre, prmUsuario, prmContraseña));
+            return true;
+        }
         public bool registrarAlcancia(string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
         {
             atrAlcancias.Add(new clsAlcancia(prmDivisa, prmCapMonedas, prmCapBilletes, prmDenMonedas, prmDenBilletes));
             return true;
         }
-        public bool registrarMoneda(string prmOwnerIDO, string prmIDO, string prmDivisa, int prmDenominacion, int prmAño)
+        public bool registrarMoneda(clsUsuario prmOwner, string prmIDO, string prmDivisa, int prmDenominacion, int prmAño)
         {
-            atrMonedas.Add(new clsMoneda(prmOwnerIDO, prmIDO, prmDivisa, prmDenominacion, prmAño));
+            clsMoneda varMoneda = new clsMoneda(prmOwner, prmIDO, prmDivisa, prmDenominacion, prmAño);
+            if (prmOwner != null)
+                prmOwner.agregarMoneda(varMoneda);
+            atrMonedas.Add(varMoneda);
             return true;
         }
-        public bool registrarBillete(string prmOwnerIDO, string prmSerial, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia)
+        public bool registrarBillete(clsUsuario prmOwner, string prmSerial, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
-            atrBilletes.Add(new clsBillete(prmOwnerIDO, prmSerial, prmDivisa, prmDenominacion, prmAño, prmMes, prmDia));
+            clsBillete varBillete = new clsBillete(prmOwner, prmSerial, prmDivisa, prmDenominacion, prmAño, prmMes, prmDia);
+            if (prmOwner != null)
+                prmOwner.agregarBillete(varBillete);
+            atrBilletes.Add(varBillete);
             return true;
         }
         #endregion
@@ -100,23 +111,28 @@ namespace appAlcancia.Dominio
         }
         #endregion
         #region Validaciones
-        public bool login(string prmUsuario, string prmContraseña)
+        public clsUsuario login(string prmUsuario, string prmContraseña)
         {
-            return false;
+            foreach (clsUsuario varUsuario in atrUsuarios)
+            {
+                if (varUsuario.validarCredenciales(prmUsuario, prmContraseña))
+                    return varUsuario;
+            }
+            return null;
         }
         #endregion
         #region Testing
         public void generar()
         {
             atrMonedas = new List<clsMoneda>();
-            atrMonedas.Add(new clsMoneda("0", "COP", 100, 1992));
-            atrMonedas.Add(new clsMoneda("1", "COP", 500, 1998));
-            atrMonedas.Add(new clsMoneda("5", "COP", 200, 1984));
+            atrMonedas.Add(new clsMoneda(null, "0", "COP", 100, 1992));
+            atrMonedas.Add(new clsMoneda(null, "1", "COP", 500, 1998));
+            atrMonedas.Add(new clsMoneda(null, "5", "COP", 200, 1984));
 
             atrBilletes = new List<clsBillete>();
-            atrBilletes.Add(new clsBillete("ABC123", "COP", 1000, 1992, 2, 20));
-            atrBilletes.Add(new clsBillete("CDF456", "COP", 500, 1992, 2, 20));
-            atrBilletes.Add(new clsBillete("ABC789", "COP", 100000, 2020, 3, 13));
+            atrBilletes.Add(new clsBillete(null, "ABC123", "COP", 1000, 1992, 2, 20));
+            atrBilletes.Add(new clsBillete(null, "CDF456", "COP", 500, 1992, 2, 20));
+            atrBilletes.Add(new clsBillete(null, "ABC789", "COP", 100000, 2020, 3, 13));
 
             atrAlcancias = new List<clsAlcancia>();
             atrAlcancias.Add(new clsAlcancia("COP", 10, 12, new List<int> { 100, 500 }, new List<int> { 500, 1000 }));
