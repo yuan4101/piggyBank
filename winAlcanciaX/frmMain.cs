@@ -120,7 +120,15 @@ namespace winAlcanciaX
         {
             clsUsuario varUser = clsSistema.darInstancia().login(txbUsuario.Text, txbPassword.Text);
             if (varUser != null)
+            {
                 lblStatus.Text = "Hola " + varUser.darNombre() + " Bienvenido";
+                btnIngresar.Enabled = false;
+                txbUsuario.Enabled = false;
+                txbPassword.Enabled = false;
+                btnRegistrarAlcancia.Enabled = true;
+                btnRegistrarMoneda.Enabled = true;
+                btnRegistrarBillete.Enabled = true;
+            } 
             else
                 lblStatus.Text = "El usuario o la contraseña son incorrectos";
         }

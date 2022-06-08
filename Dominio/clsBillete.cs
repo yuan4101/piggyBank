@@ -61,6 +61,17 @@ namespace appAlcancia.Dominio
             return true;
         }
         #endregion
+        public override string ToString()
+        {
+            string varString = "";
+            varString = varString + "Identificador: " + atrIDO + "\n";
+            varString = varString + "Denominacion: " + atrDenominacion + "\n";
+            varString = varString + "Divisa: " + atrDivisa + "\n";
+            varString = varString + "Año: " + atrAño + "\n";
+            varString = varString + "Mes: " + atrMes + "\n";
+            varString = varString + "Dia: " + atrDia + "\n";
+            return varString;
+        }
         #region Testing
         public new void generar()
         {

@@ -10,6 +10,7 @@ namespace appAlcancia.Dominio
     {
         #region Atributos
         #region Propios
+        private string atrIDO;
         private int atrCapacidadMonedas;
         private int atrCapacidadBilletes;
         private string atrDivisa;
@@ -36,9 +37,9 @@ namespace appAlcancia.Dominio
         public clsAlcancia() 
         {
         }
-        public clsAlcancia(string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
+        public clsAlcancia(string prmIDO, string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
         {
-            //TO DO
+            atrIDO = prmIDO;
             atrDivisa = prmDivisa;
             atrCapacidadMonedas = prmCapMonedas;
             atrCapacidadBilletes = prmCapBilletes;
@@ -47,6 +48,10 @@ namespace appAlcancia.Dominio
         }
         #endregion
         #region Accesores
+        public string darIDO()
+        {
+            return atrIDO;
+        }
         public List<clsMoneda> darMonedas()
         {
             return atrMonedas;
@@ -162,6 +167,15 @@ namespace appAlcancia.Dominio
         public bool retirarBillete(string prmSerial)
         {
             throw new NotImplementedException();
+        }
+        public override string ToString()
+        {
+            string varString = "";
+            varString = varString + "Identificador: " + atrIDO + "\n";
+            varString = varString + "Divisa: " + atrDivisa + "\n";
+            //varString = varString + "Denominaciones de Monedas: " + atrDenominacionesMonedas.ToArray().ToString() + "\n";
+            //varString = varString + "Denominaciones de Billetes: " + atrDenominacionesBilletes.ToArray().ToString() + "\n";
+            return varString;
         }
         #endregion
         #region Testing

@@ -177,6 +177,7 @@ namespace winAlcanciaX
             this.txbPassword.PasswordChar = '*';
             this.txbPassword.Size = new System.Drawing.Size(100, 20);
             this.txbPassword.TabIndex = 5;
+            this.txbPassword.Text = "password";
             // 
             // txbUsuario
             // 
@@ -186,6 +187,7 @@ namespace winAlcanciaX
             this.txbUsuario.Name = "txbUsuario";
             this.txbUsuario.Size = new System.Drawing.Size(100, 20);
             this.txbUsuario.TabIndex = 4;
+            this.txbUsuario.Text = "admin";
             // 
             // iconImage
             // 

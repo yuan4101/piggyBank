@@ -41,9 +41,9 @@ namespace appAlcancia.Dominio
             atrUsuarios.Add(new clsUsuario(prmIDO, prmNombre, prmUsuario, prmContraseña));
             return true;
         }
-        public bool registrarAlcancia(string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
+        public bool registrarAlcancia(string prmIDO, string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
         {
-            atrAlcancias.Add(new clsAlcancia(prmDivisa, prmCapMonedas, prmCapBilletes, prmDenMonedas, prmDenBilletes));
+            atrAlcancias.Add(new clsAlcancia(prmIDO, prmDivisa, prmCapMonedas, prmCapBilletes, prmDenMonedas, prmDenBilletes));
             return true;
         }
         public bool registrarMoneda(clsUsuario prmOwner, string prmIDO, string prmDivisa, int prmDenominacion, int prmAño)
@@ -120,6 +120,33 @@ namespace appAlcancia.Dominio
             }
             return null;
         }
+        public clsAlcancia buscarAlcancia(string prmIDO)
+        {
+            foreach (clsAlcancia varAlcancia in atrAlcancias)
+            {
+                if (varAlcancia.darIDO() == prmIDO)
+                    return varAlcancia;
+            }
+            return null;
+        }
+        public clsMoneda buscarMoneda(string prmIDO)
+        {
+            foreach (clsMoneda varMoneda in atrMonedas)
+            {
+                if (varMoneda.darIDO() == prmIDO)
+                    return varMoneda;
+            }
+            return null;
+        }
+        public clsBillete buscarBillete(string prmSerial)
+        {
+            foreach (clsBillete varBillete in atrBilletes)
+            {
+                if (varBillete.darIDO() == prmSerial)
+                    return varBillete;
+            }
+            return null;
+        }
         #endregion
         #region Testing
         public void generar()
@@ -135,7 +162,7 @@ namespace appAlcancia.Dominio
             atrBilletes.Add(new clsBillete(null, "ABC789", "COP", 100000, 2020, 3, 13));
 
             atrAlcancias = new List<clsAlcancia>();
-            atrAlcancias.Add(new clsAlcancia("COP", 10, 12, new List<int> { 100, 500 }, new List<int> { 500, 1000 }));
+            atrAlcancias.Add(new clsAlcancia("1", "COP", 10, 12, new List<int> { 100, 500 }, new List<int> { 500, 1000 }));
 
             atrAlcancias[0].darMonedas().Add(atrMonedas[0]);
             atrAlcancias[0].darMonedas().Add(atrMonedas[1]);

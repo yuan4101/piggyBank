@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblRegistroPortatil = new System.Windows.Forms.Label();
+            this.lblRegistrarBillete = new System.Windows.Forms.Label();
             this.txbDia = new System.Windows.Forms.TextBox();
             this.txbAño = new System.Windows.Forms.TextBox();
             this.txbSerial = new System.Windows.Forms.TextBox();
@@ -39,22 +39,22 @@
             this.lblDenominacion = new System.Windows.Forms.Label();
             this.lblSerial = new System.Windows.Forms.Label();
             this.lblDivisa = new System.Windows.Forms.Label();
-            this.lblDatosPortatil = new System.Windows.Forms.Label();
-            this.lblRegistrarBillete = new System.Windows.Forms.Label();
+            this.lblSubtitulo = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.txbDenominacion = new System.Windows.Forms.TextBox();
             this.txbMes = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // lblRegistroPortatil
+            // lblRegistrarBillete
             // 
-            this.lblRegistroPortatil.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistroPortatil.Location = new System.Drawing.Point(12, 440);
-            this.lblRegistroPortatil.Name = "lblRegistroPortatil";
-            this.lblRegistroPortatil.Size = new System.Drawing.Size(610, 70);
-            this.lblRegistroPortatil.TabIndex = 67;
-            this.lblRegistroPortatil.Visible = false;
+            this.lblRegistrarBillete.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistrarBillete.Location = new System.Drawing.Point(12, 440);
+            this.lblRegistrarBillete.Name = "lblRegistrarBillete";
+            this.lblRegistrarBillete.Size = new System.Drawing.Size(610, 70);
+            this.lblRegistrarBillete.TabIndex = 67;
+            this.lblRegistrarBillete.Visible = false;
             // 
             // txbDia
             // 
@@ -147,27 +147,26 @@
             this.lblDivisa.Size = new System.Drawing.Size(56, 17);
             this.lblDivisa.TabIndex = 53;
             this.lblDivisa.Text = "Divisa";
-            this.lblDivisa.Click += new System.EventHandler(this.lblDivisa_Click);
             // 
-            // lblDatosPortatil
+            // lblSubtitulo
             // 
-            this.lblDatosPortatil.AutoSize = true;
-            this.lblDatosPortatil.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosPortatil.Location = new System.Drawing.Point(190, 58);
-            this.lblDatosPortatil.Name = "lblDatosPortatil";
-            this.lblDatosPortatil.Size = new System.Drawing.Size(262, 21);
-            this.lblDatosPortatil.TabIndex = 52;
-            this.lblDatosPortatil.Text = "Digite los datos del billete";
+            this.lblSubtitulo.AutoSize = true;
+            this.lblSubtitulo.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtitulo.Location = new System.Drawing.Point(190, 58);
+            this.lblSubtitulo.Name = "lblSubtitulo";
+            this.lblSubtitulo.Size = new System.Drawing.Size(262, 21);
+            this.lblSubtitulo.TabIndex = 52;
+            this.lblSubtitulo.Text = "Digite los datos del billete";
             // 
-            // lblRegistrarBillete
+            // lblTitulo
             // 
-            this.lblRegistrarBillete.AutoSize = true;
-            this.lblRegistrarBillete.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistrarBillete.Location = new System.Drawing.Point(12, 14);
-            this.lblRegistrarBillete.Name = "lblRegistrarBillete";
-            this.lblRegistrarBillete.Size = new System.Drawing.Size(163, 21);
-            this.lblRegistrarBillete.TabIndex = 51;
-            this.lblRegistrarBillete.Text = "Registrar Billete";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(12, 14);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(163, 21);
+            this.lblTitulo.TabIndex = 51;
+            this.lblTitulo.Text = "Registrar Billete";
             // 
             // btnRegistrar
             // 
@@ -178,6 +177,7 @@
             this.btnRegistrar.TabIndex = 50;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnFinalizar
             // 
@@ -188,6 +188,7 @@
             this.btnFinalizar.TabIndex = 49;
             this.btnFinalizar.Text = "Finalizar";
             this.btnFinalizar.UseVisualStyleBackColor = true;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // txbDenominacion
             // 
@@ -212,7 +213,7 @@
             this.ClientSize = new System.Drawing.Size(634, 521);
             this.Controls.Add(this.txbMes);
             this.Controls.Add(this.txbDenominacion);
-            this.Controls.Add(this.lblRegistroPortatil);
+            this.Controls.Add(this.lblRegistrarBillete);
             this.Controls.Add(this.txbDia);
             this.Controls.Add(this.txbAño);
             this.Controls.Add(this.txbSerial);
@@ -223,8 +224,8 @@
             this.Controls.Add(this.lblDenominacion);
             this.Controls.Add(this.lblSerial);
             this.Controls.Add(this.lblDivisa);
-            this.Controls.Add(this.lblDatosPortatil);
-            this.Controls.Add(this.lblRegistrarBillete);
+            this.Controls.Add(this.lblSubtitulo);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnFinalizar);
             this.Name = "frmRegistrarBillete";
@@ -236,7 +237,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblRegistroPortatil;
+        private System.Windows.Forms.Label lblRegistrarBillete;
         private System.Windows.Forms.TextBox txbDia;
         private System.Windows.Forms.TextBox txbAño;
         private System.Windows.Forms.TextBox txbSerial;
@@ -247,8 +248,8 @@
         private System.Windows.Forms.Label lblDenominacion;
         private System.Windows.Forms.Label lblSerial;
         private System.Windows.Forms.Label lblDivisa;
-        private System.Windows.Forms.Label lblDatosPortatil;
-        private System.Windows.Forms.Label lblRegistrarBillete;
+        private System.Windows.Forms.Label lblSubtitulo;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.TextBox txbDenominacion;
