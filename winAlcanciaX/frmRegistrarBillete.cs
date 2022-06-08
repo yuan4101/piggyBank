@@ -8,30 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace mvcComputersCompany
+namespace winAlcanciaX
 {
-    public partial class frmRegistrarMoneda : Form
+    public partial class frmRegistrarBillete : Form
     {
-        public frmRegistrarMoneda()
+        public frmRegistrarBillete()
         {
             InitializeComponent();
         }
-        private void btnFinalizar_Click(object sender, EventArgs e)
+
+        private void lblDivisa_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //lblRegistroPortatil.Text = Portatil.RegistrarPortatil(txbSerial.Text, int.Parse(txbNit.Text), cbMarca.Text, int.Parse(txbCapacidadDisco.Text), cbTipoDisco.Text, int.Parse(txbCapacidadRam.Text), dtpFechaEnsamblaje.Value);
-                lblRegistroPortatil.Visible = true;
-            }
-            catch (Exception a)
-            {
-                lblRegistroPortatil.Text = "ERROR: " + a.Message;
-                lblRegistroPortatil.Visible = true;
-            }
+
         }
     }
 }

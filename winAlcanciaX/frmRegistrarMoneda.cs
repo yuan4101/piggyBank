@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace winAlcanciaX
 {
-    public partial class frmRegistrarAlcancia : Form
+    public partial class frmRegistrarMoneda : Form
     {
-        public frmRegistrarAlcancia()
+        public frmRegistrarMoneda()
         {
             InitializeComponent();
         }

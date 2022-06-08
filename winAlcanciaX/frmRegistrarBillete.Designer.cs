@@ -1,7 +1,6 @@
-﻿
-namespace mvcComputersCompany
+﻿namespace winAlcanciaX
 {
-    partial class frmRegistrarMoneda
+    partial class frmRegistrarBillete
     {
         /// <summary>
         /// Required designer variable.
@@ -29,265 +28,230 @@ namespace mvcComputersCompany
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFinalizar = new System.Windows.Forms.Button();
-            this.btnRegistrar = new System.Windows.Forms.Button();
-            this.lblRegistrarPortatil = new System.Windows.Forms.Label();
-            this.lblDatosPortatil = new System.Windows.Forms.Label();
-            this.lblSerial = new System.Windows.Forms.Label();
-            this.lblNit = new System.Windows.Forms.Label();
-            this.lblMarca = new System.Windows.Forms.Label();
-            this.lblCapacidadDisco = new System.Windows.Forms.Label();
-            this.lblTipoDisco = new System.Windows.Forms.Label();
-            this.lblCapacidadRam = new System.Windows.Forms.Label();
-            this.lblFechaEnsamblaje = new System.Windows.Forms.Label();
-            this.txbSerial = new System.Windows.Forms.TextBox();
-            this.txbNit = new System.Windows.Forms.TextBox();
-            this.txbCapacidadDisco = new System.Windows.Forms.TextBox();
-            this.txbCapacidadRam = new System.Windows.Forms.TextBox();
-            this.dtpFechaEnsamblaje = new System.Windows.Forms.DateTimePicker();
-            this.cbMarca = new System.Windows.Forms.ComboBox();
-            this.cbTipoDisco = new System.Windows.Forms.ComboBox();
             this.lblRegistroPortatil = new System.Windows.Forms.Label();
+            this.txbDia = new System.Windows.Forms.TextBox();
+            this.txbAño = new System.Windows.Forms.TextBox();
+            this.txbSerial = new System.Windows.Forms.TextBox();
+            this.txbDivisa = new System.Windows.Forms.TextBox();
+            this.lblDia = new System.Windows.Forms.Label();
+            this.lblMes = new System.Windows.Forms.Label();
+            this.lblAño = new System.Windows.Forms.Label();
+            this.lblDenominacion = new System.Windows.Forms.Label();
+            this.lblSerial = new System.Windows.Forms.Label();
+            this.lblDivisa = new System.Windows.Forms.Label();
+            this.lblDatosPortatil = new System.Windows.Forms.Label();
+            this.lblRegistrarBillete = new System.Windows.Forms.Label();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
+            this.txbDenominacion = new System.Windows.Forms.TextBox();
+            this.txbMes = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // btnFinalizar
+            // lblRegistroPortatil
             // 
-            this.btnFinalizar.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinalizar.Location = new System.Drawing.Point(522, 12);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(100, 30);
-            this.btnFinalizar.TabIndex = 2;
-            this.btnFinalizar.Text = "Finalizar";
-            this.btnFinalizar.UseVisualStyleBackColor = true;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            this.lblRegistroPortatil.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistroPortatil.Location = new System.Drawing.Point(12, 440);
+            this.lblRegistroPortatil.Name = "lblRegistroPortatil";
+            this.lblRegistroPortatil.Size = new System.Drawing.Size(610, 70);
+            this.lblRegistroPortatil.TabIndex = 67;
+            this.lblRegistroPortatil.Visible = false;
             // 
-            // btnRegistrar
+            // txbDia
             // 
-            this.btnRegistrar.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrar.Location = new System.Drawing.Point(275, 395);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(100, 30);
-            this.btnRegistrar.TabIndex = 10;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            this.txbDia.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDia.Location = new System.Drawing.Point(351, 323);
+            this.txbDia.Name = "txbDia";
+            this.txbDia.Size = new System.Drawing.Size(200, 20);
+            this.txbDia.TabIndex = 63;
             // 
-            // lblRegistrarPortatil
+            // txbAño
             // 
-            this.lblRegistrarPortatil.AutoSize = true;
-            this.lblRegistrarPortatil.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistrarPortatil.Location = new System.Drawing.Point(12, 16);
-            this.lblRegistrarPortatil.Name = "lblRegistrarPortatil";
-            this.lblRegistrarPortatil.Size = new System.Drawing.Size(172, 21);
-            this.lblRegistrarPortatil.TabIndex = 11;
-            this.lblRegistrarPortatil.Text = "Registrar Portatil";
+            this.txbAño.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbAño.Location = new System.Drawing.Point(351, 243);
+            this.txbAño.Name = "txbAño";
+            this.txbAño.Size = new System.Drawing.Size(200, 20);
+            this.txbAño.TabIndex = 62;
             // 
-            // lblDatosPortatil
+            // txbSerial
             // 
-            this.lblDatosPortatil.AutoSize = true;
-            this.lblDatosPortatil.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosPortatil.Location = new System.Drawing.Point(190, 60);
-            this.lblDatosPortatil.Name = "lblDatosPortatil";
-            this.lblDatosPortatil.Size = new System.Drawing.Size(271, 21);
-            this.lblDatosPortatil.TabIndex = 12;
-            this.lblDatosPortatil.Text = "Digite los datos del portatil";
+            this.txbSerial.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSerial.Location = new System.Drawing.Point(351, 123);
+            this.txbSerial.Name = "txbSerial";
+            this.txbSerial.Size = new System.Drawing.Size(200, 20);
+            this.txbSerial.TabIndex = 61;
+            // 
+            // txbDivisa
+            // 
+            this.txbDivisa.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDivisa.Location = new System.Drawing.Point(351, 163);
+            this.txbDivisa.Name = "txbDivisa";
+            this.txbDivisa.Size = new System.Drawing.Size(200, 20);
+            this.txbDivisa.TabIndex = 60;
+            // 
+            // lblDia
+            // 
+            this.lblDia.AutoSize = true;
+            this.lblDia.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDia.Location = new System.Drawing.Point(101, 323);
+            this.lblDia.Name = "lblDia";
+            this.lblDia.Size = new System.Drawing.Size(32, 17);
+            this.lblDia.TabIndex = 58;
+            this.lblDia.Text = "Dia";
+            // 
+            // lblMes
+            // 
+            this.lblMes.AutoSize = true;
+            this.lblMes.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMes.Location = new System.Drawing.Point(101, 283);
+            this.lblMes.Name = "lblMes";
+            this.lblMes.Size = new System.Drawing.Size(32, 17);
+            this.lblMes.TabIndex = 57;
+            this.lblMes.Text = "Mes";
+            // 
+            // lblAño
+            // 
+            this.lblAño.AutoSize = true;
+            this.lblAño.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAño.Location = new System.Drawing.Point(101, 243);
+            this.lblAño.Name = "lblAño";
+            this.lblAño.Size = new System.Drawing.Size(32, 17);
+            this.lblAño.TabIndex = 56;
+            this.lblAño.Text = "Año";
+            // 
+            // lblDenominacion
+            // 
+            this.lblDenominacion.AutoSize = true;
+            this.lblDenominacion.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDenominacion.Location = new System.Drawing.Point(101, 203);
+            this.lblDenominacion.Name = "lblDenominacion";
+            this.lblDenominacion.Size = new System.Drawing.Size(104, 17);
+            this.lblDenominacion.TabIndex = 55;
+            this.lblDenominacion.Text = "Denominacion";
             // 
             // lblSerial
             // 
             this.lblSerial.AutoSize = true;
             this.lblSerial.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSerial.Location = new System.Drawing.Point(100, 110);
+            this.lblSerial.Location = new System.Drawing.Point(101, 126);
             this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(112, 17);
-            this.lblSerial.TabIndex = 13;
-            this.lblSerial.Text = "Numero Serial";
+            this.lblSerial.Size = new System.Drawing.Size(56, 17);
+            this.lblSerial.TabIndex = 54;
+            this.lblSerial.Text = "Serial";
             // 
-            // lblNit
+            // lblDivisa
             // 
-            this.lblNit.AutoSize = true;
-            this.lblNit.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNit.Location = new System.Drawing.Point(100, 150);
-            this.lblNit.Name = "lblNit";
-            this.lblNit.Size = new System.Drawing.Size(32, 17);
-            this.lblNit.TabIndex = 14;
-            this.lblNit.Text = "Nit";
+            this.lblDivisa.AutoSize = true;
+            this.lblDivisa.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDivisa.Location = new System.Drawing.Point(101, 166);
+            this.lblDivisa.Name = "lblDivisa";
+            this.lblDivisa.Size = new System.Drawing.Size(56, 17);
+            this.lblDivisa.TabIndex = 53;
+            this.lblDivisa.Text = "Divisa";
+            this.lblDivisa.Click += new System.EventHandler(this.lblDivisa_Click);
             // 
-            // lblMarca
+            // lblDatosPortatil
             // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.Location = new System.Drawing.Point(100, 190);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(48, 17);
-            this.lblMarca.TabIndex = 15;
-            this.lblMarca.Text = "Marca";
+            this.lblDatosPortatil.AutoSize = true;
+            this.lblDatosPortatil.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatosPortatil.Location = new System.Drawing.Point(190, 58);
+            this.lblDatosPortatil.Name = "lblDatosPortatil";
+            this.lblDatosPortatil.Size = new System.Drawing.Size(262, 21);
+            this.lblDatosPortatil.TabIndex = 52;
+            this.lblDatosPortatil.Text = "Digite los datos del billete";
             // 
-            // lblCapacidadDisco
+            // lblRegistrarBillete
             // 
-            this.lblCapacidadDisco.AutoSize = true;
-            this.lblCapacidadDisco.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapacidadDisco.Location = new System.Drawing.Point(100, 230);
-            this.lblCapacidadDisco.Name = "lblCapacidadDisco";
-            this.lblCapacidadDisco.Size = new System.Drawing.Size(200, 17);
-            this.lblCapacidadDisco.TabIndex = 16;
-            this.lblCapacidadDisco.Text = "Capacidad del disco duro";
+            this.lblRegistrarBillete.AutoSize = true;
+            this.lblRegistrarBillete.Font = new System.Drawing.Font("Cascadia Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistrarBillete.Location = new System.Drawing.Point(12, 14);
+            this.lblRegistrarBillete.Name = "lblRegistrarBillete";
+            this.lblRegistrarBillete.Size = new System.Drawing.Size(163, 21);
+            this.lblRegistrarBillete.TabIndex = 51;
+            this.lblRegistrarBillete.Text = "Registrar Billete";
             // 
-            // lblTipoDisco
+            // btnRegistrar
             // 
-            this.lblTipoDisco.AutoSize = true;
-            this.lblTipoDisco.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoDisco.Location = new System.Drawing.Point(100, 270);
-            this.lblTipoDisco.Name = "lblTipoDisco";
-            this.lblTipoDisco.Size = new System.Drawing.Size(152, 17);
-            this.lblTipoDisco.TabIndex = 17;
-            this.lblTipoDisco.Text = "Tipo de disco duro";
+            this.btnRegistrar.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Location = new System.Drawing.Point(275, 393);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(100, 30);
+            this.btnRegistrar.TabIndex = 50;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
             // 
-            // lblCapacidadRam
+            // btnFinalizar
             // 
-            this.lblCapacidadRam.AutoSize = true;
-            this.lblCapacidadRam.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapacidadRam.Location = new System.Drawing.Point(100, 310);
-            this.lblCapacidadRam.Name = "lblCapacidadRam";
-            this.lblCapacidadRam.Size = new System.Drawing.Size(200, 17);
-            this.lblCapacidadRam.TabIndex = 18;
-            this.lblCapacidadRam.Text = "Capacidad de memoria ram";
+            this.btnFinalizar.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.Location = new System.Drawing.Point(522, 10);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(100, 30);
+            this.btnFinalizar.TabIndex = 49;
+            this.btnFinalizar.Text = "Finalizar";
+            this.btnFinalizar.UseVisualStyleBackColor = true;
             // 
-            // lblFechaEnsamblaje
+            // txbDenominacion
             // 
-            this.lblFechaEnsamblaje.AutoSize = true;
-            this.lblFechaEnsamblaje.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaEnsamblaje.Location = new System.Drawing.Point(100, 350);
-            this.lblFechaEnsamblaje.Name = "lblFechaEnsamblaje";
-            this.lblFechaEnsamblaje.Size = new System.Drawing.Size(160, 17);
-            this.lblFechaEnsamblaje.TabIndex = 19;
-            this.lblFechaEnsamblaje.Text = "Fecha de ensamblaje";
+            this.txbDenominacion.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDenominacion.Location = new System.Drawing.Point(351, 203);
+            this.txbDenominacion.Name = "txbDenominacion";
+            this.txbDenominacion.Size = new System.Drawing.Size(200, 20);
+            this.txbDenominacion.TabIndex = 68;
             // 
-            // txbSerial
+            // txbMes
             // 
-            this.txbSerial.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSerial.Location = new System.Drawing.Point(350, 110);
-            this.txbSerial.Name = "txbSerial";
-            this.txbSerial.Size = new System.Drawing.Size(200, 20);
-            this.txbSerial.TabIndex = 20;
+            this.txbMes.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMes.Location = new System.Drawing.Point(351, 283);
+            this.txbMes.Name = "txbMes";
+            this.txbMes.Size = new System.Drawing.Size(200, 20);
+            this.txbMes.TabIndex = 69;
             // 
-            // txbNit
-            // 
-            this.txbNit.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNit.Location = new System.Drawing.Point(350, 150);
-            this.txbNit.Name = "txbNit";
-            this.txbNit.Size = new System.Drawing.Size(200, 20);
-            this.txbNit.TabIndex = 21;
-            // 
-            // txbCapacidadDisco
-            // 
-            this.txbCapacidadDisco.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCapacidadDisco.Location = new System.Drawing.Point(350, 230);
-            this.txbCapacidadDisco.Name = "txbCapacidadDisco";
-            this.txbCapacidadDisco.Size = new System.Drawing.Size(200, 20);
-            this.txbCapacidadDisco.TabIndex = 23;
-            // 
-            // txbCapacidadRam
-            // 
-            this.txbCapacidadRam.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCapacidadRam.Location = new System.Drawing.Point(350, 310);
-            this.txbCapacidadRam.Name = "txbCapacidadRam";
-            this.txbCapacidadRam.Size = new System.Drawing.Size(200, 20);
-            this.txbCapacidadRam.TabIndex = 25;
-            // 
-            // dtpFechaEnsamblaje
-            // 
-            this.dtpFechaEnsamblaje.CalendarFont = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaEnsamblaje.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaEnsamblaje.Location = new System.Drawing.Point(350, 350);
-            this.dtpFechaEnsamblaje.Name = "dtpFechaEnsamblaje";
-            this.dtpFechaEnsamblaje.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaEnsamblaje.TabIndex = 26;
-            // 
-            // cbMarca
-            // 
-            this.cbMarca.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMarca.FormattingEnabled = true;
-            this.cbMarca.Items.AddRange(new object[] {
-            "Asus",
-            "Dell",
-            "Lenovo"});
-            this.cbMarca.Location = new System.Drawing.Point(350, 190);
-            this.cbMarca.Name = "cbMarca";
-            this.cbMarca.Size = new System.Drawing.Size(200, 23);
-            this.cbMarca.TabIndex = 27;
-            // 
-            // cbTipoDisco
-            // 
-            this.cbTipoDisco.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTipoDisco.FormattingEnabled = true;
-            this.cbTipoDisco.Items.AddRange(new object[] {
-            "HDD",
-            "NVME",
-            "SSD"});
-            this.cbTipoDisco.Location = new System.Drawing.Point(350, 270);
-            this.cbTipoDisco.Name = "cbTipoDisco";
-            this.cbTipoDisco.Size = new System.Drawing.Size(200, 23);
-            this.cbTipoDisco.TabIndex = 28;
-            // 
-            // lblRegistroPortatil
-            // 
-            this.lblRegistroPortatil.Font = new System.Drawing.Font("Cascadia Mono", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistroPortatil.Location = new System.Drawing.Point(12, 442);
-            this.lblRegistroPortatil.Name = "lblRegistroPortatil";
-            this.lblRegistroPortatil.Size = new System.Drawing.Size(610, 70);
-            this.lblRegistroPortatil.TabIndex = 29;
-            this.lblRegistroPortatil.Visible = false;
-            // 
-            // frmRegistrarPortatil
+            // frmRegistrarBillete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 521);
+            this.Controls.Add(this.txbMes);
+            this.Controls.Add(this.txbDenominacion);
             this.Controls.Add(this.lblRegistroPortatil);
-            this.Controls.Add(this.cbTipoDisco);
-            this.Controls.Add(this.cbMarca);
-            this.Controls.Add(this.dtpFechaEnsamblaje);
-            this.Controls.Add(this.txbCapacidadRam);
-            this.Controls.Add(this.txbCapacidadDisco);
-            this.Controls.Add(this.txbNit);
+            this.Controls.Add(this.txbDia);
+            this.Controls.Add(this.txbAño);
             this.Controls.Add(this.txbSerial);
-            this.Controls.Add(this.lblFechaEnsamblaje);
-            this.Controls.Add(this.lblCapacidadRam);
-            this.Controls.Add(this.lblTipoDisco);
-            this.Controls.Add(this.lblCapacidadDisco);
-            this.Controls.Add(this.lblMarca);
-            this.Controls.Add(this.lblNit);
+            this.Controls.Add(this.txbDivisa);
+            this.Controls.Add(this.lblDia);
+            this.Controls.Add(this.lblMes);
+            this.Controls.Add(this.lblAño);
+            this.Controls.Add(this.lblDenominacion);
             this.Controls.Add(this.lblSerial);
+            this.Controls.Add(this.lblDivisa);
             this.Controls.Add(this.lblDatosPortatil);
-            this.Controls.Add(this.lblRegistrarPortatil);
+            this.Controls.Add(this.lblRegistrarBillete);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnFinalizar);
-            this.Name = "frmRegistrarPortatil";
-            this.Text = "Registrar Portatil";
+            this.Name = "frmRegistrarBillete";
+            this.Text = "Registrar Billete";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnFinalizar;
-        private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Label lblRegistrarPortatil;
-        private System.Windows.Forms.Label lblDatosPortatil;
-        private System.Windows.Forms.Label lblSerial;
-        private System.Windows.Forms.Label lblNit;
-        private System.Windows.Forms.Label lblMarca;
-        private System.Windows.Forms.Label lblCapacidadDisco;
-        private System.Windows.Forms.Label lblTipoDisco;
-        private System.Windows.Forms.Label lblCapacidadRam;
-        private System.Windows.Forms.Label lblFechaEnsamblaje;
-        private System.Windows.Forms.TextBox txbSerial;
-        private System.Windows.Forms.TextBox txbNit;
-        private System.Windows.Forms.TextBox txbCapacidadDisco;
-        private System.Windows.Forms.TextBox txbCapacidadRam;
-        private System.Windows.Forms.DateTimePicker dtpFechaEnsamblaje;
-        private System.Windows.Forms.ComboBox cbMarca;
-        private System.Windows.Forms.ComboBox cbTipoDisco;
+
         private System.Windows.Forms.Label lblRegistroPortatil;
+        private System.Windows.Forms.TextBox txbDia;
+        private System.Windows.Forms.TextBox txbAño;
+        private System.Windows.Forms.TextBox txbSerial;
+        private System.Windows.Forms.TextBox txbDivisa;
+        private System.Windows.Forms.Label lblDia;
+        private System.Windows.Forms.Label lblMes;
+        private System.Windows.Forms.Label lblAño;
+        private System.Windows.Forms.Label lblDenominacion;
+        private System.Windows.Forms.Label lblSerial;
+        private System.Windows.Forms.Label lblDivisa;
+        private System.Windows.Forms.Label lblDatosPortatil;
+        private System.Windows.Forms.Label lblRegistrarBillete;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.TextBox txbDenominacion;
+        private System.Windows.Forms.TextBox txbMes;
     }
 }

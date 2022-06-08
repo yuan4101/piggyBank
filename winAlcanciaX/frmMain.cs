@@ -68,17 +68,17 @@ namespace winAlcanciaX
         #region Menu lateral
         private void btnRegistrarAlcancia_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<frmRegistrarAlcancia>();
+            AbrirFormulario<frmRegistrarAlcancia>();
             btnRegistrarAlcancia.BackColor = Color.FromArgb(81, 96, 90);
         }
         private void btnRegistrarMoneda_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<frmRegistrarMoneda>();
+            AbrirFormulario<frmRegistrarMoneda>();
             btnRegistrarMoneda.BackColor = Color.FromArgb(81, 96, 90);
         }
         private void btnRegistrarBillete_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario<frmRegistrarBillete>();
+            AbrirFormulario<frmRegistrarBillete>();
             btnRegistrarBillete.BackColor = Color.FromArgb(81, 96, 90);
         }
         #endregion
