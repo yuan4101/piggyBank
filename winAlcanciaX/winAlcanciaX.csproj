@@ -46,42 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMain.cs">
+    <Compile Include="GUI\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="GUI\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistrarAlcancia.cs">
+    <Compile Include="GUI\frmRegistrarAlcancia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistrarAlcancia.Designer.cs">
+    <Compile Include="GUI\frmRegistrarAlcancia.Designer.cs">
       <DependentUpon>frmRegistrarAlcancia.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistrarBillete.cs">
+    <Compile Include="GUI\frmRegistrarBillete.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistrarBillete.Designer.cs">
+    <Compile Include="GUI\frmRegistrarBillete.Designer.cs">
       <DependentUpon>frmRegistrarBillete.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistrarMoneda.cs">
+    <Compile Include="GUI\frmRegistrarMoneda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistrarMoneda.Designer.cs">
+    <Compile Include="GUI\frmRegistrarMoneda.Designer.cs">
       <DependentUpon>frmRegistrarMoneda.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmMain.resx">
+    <Compile Include="Client\clsClient.cs" />
+    <EmbeddedResource Include="GUI\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistrarAlcancia.resx">
+    <EmbeddedResource Include="GUI\frmRegistrarAlcancia.resx">
       <DependentUpon>frmRegistrarAlcancia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistrarBillete.resx">
+    <EmbeddedResource Include="GUI\frmRegistrarBillete.resx">
       <DependentUpon>frmRegistrarBillete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistrarMoneda.resx">
+    <EmbeddedResource Include="GUI\frmRegistrarMoneda.resx">
       <DependentUpon>frmRegistrarMoneda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

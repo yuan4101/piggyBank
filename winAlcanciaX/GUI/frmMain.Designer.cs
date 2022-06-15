@@ -1,5 +1,5 @@
 ﻿
-namespace winAlcanciaX
+namespace winAlcanciaX.GUI
 {
     partial class frmMain
     {
@@ -177,7 +177,7 @@ namespace winAlcanciaX
             this.txbPassword.PasswordChar = '*';
             this.txbPassword.Size = new System.Drawing.Size(100, 20);
             this.txbPassword.TabIndex = 5;
-            this.txbPassword.Text = "password";
+            this.txbPassword.Text = "admin";
             // 
             // txbUsuario
             // 

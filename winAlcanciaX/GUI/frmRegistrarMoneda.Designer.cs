@@ -1,4 +1,4 @@
-﻿namespace winAlcanciaX
+﻿namespace winAlcanciaX.GUI
 {
     partial class frmRegistrarMoneda
     {

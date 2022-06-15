@@ -3,16 +3,17 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using winAlcanciaX.serverClient;
 using appAlcancia.Dominio;
 
-namespace winAlcanciaX
+namespace winAlcanciaX.GUI
 {
     public partial class frmMain : Form
     {
         public frmMain()
         {
             InitializeComponent();
-            clsSistema.darInstancia().registrarUsuario("1", "Administrador", "admin", "password");
+            //clsSistema.darInstancia().registrarUsuario("1", "Administrador", "admin", "password");
         }
 
         #region Salir
@@ -118,10 +119,19 @@ namespace winAlcanciaX
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            clsUsuario varUser = clsSistema.darInstancia().login(txbUsuario.Text, txbPassword.Text);
-            if (varUser != null)
+            clsClient varCliente = new clsClient("localhost", 4404);
+
+            string varUsuario = txbUsuario.Text;
+            string varContraseña = txbPassword.Text;
+
+            varCliente.Start();
+
+            varCliente.Send(varUsuario);
+            varCliente.Send(varContraseña);
+
+            if (int.Parse(varCliente.Receive().Split(',')[0]) == 1)
             {
-                lblStatus.Text = "Hola " + varUser.darNombre() + " Bienvenido";
+                lblStatus.Text = "Hola " + varUsuario + " Bienvenido";
                 btnIngresar.Enabled = false;
                 txbUsuario.Enabled = false;
                 txbPassword.Enabled = false;

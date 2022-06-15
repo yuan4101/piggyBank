@@ -18,7 +18,7 @@ namespace appAlcancia.Dominio
         private List<int> atrDenominacionesBilletes = new List<int>();
         #endregion
         #region Asociativos
-        //private clsAlcancia atrAlcancia;
+        private clsAlcancia atrAlcancia;
         private List<clsMoneda> atrMonedas = new List<clsMoneda>();
         private List<clsBillete> atrBilletes = new List<clsBillete>();
         #endregion

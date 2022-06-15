@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using appAlcancia.Dominio;
 
-namespace winAlcanciaX
+namespace winAlcanciaX.GUI
 {
     public partial class frmRegistrarAlcancia : Form
     {
