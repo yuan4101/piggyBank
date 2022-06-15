@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libAlcancia", "libAlcancia.csproj", "{D5C54F70-8F7C-403F-92DC-D334EA47CD45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uTestAlcancia", "UnitTestProject1\uTestAlcancia.csproj", "{C281A490-03EE-40AA-B097-9892713549EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uTestAlcancia", "uTestAlcancia\uTestAlcancia.csproj", "{C281A490-03EE-40AA-B097-9892713549EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

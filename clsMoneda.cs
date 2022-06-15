@@ -7,7 +7,7 @@ using appAlcancia.Servicios;
 
 namespace appAlcancia.Dominio
 {
-    public class clsMoneda
+    public class clsMoneda : IComparable
     {
         #region Atributos
         #region IDO
@@ -101,6 +101,12 @@ namespace appAlcancia.Dominio
             atrAlcancia = new clsAlcancia();
         }
         #endregion
+        public int CompareTo(object prmMoneda)
+        {
+            //TO DO
+            return 0;
+        }
         #endregion
+
     }
 }

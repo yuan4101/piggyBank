@@ -33,12 +33,9 @@ namespace appAlcancia.Dominio
         #endregion
         #region Operaciones
         #region Constructor
-        public clsAlcancia() 
-        {
-        }
+        public clsAlcancia() {}
         public clsAlcancia(string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
         {
-            //TO DO
             atrDivisa = prmDivisa;
             atrCapacidadMonedas = prmCapMonedas;
             atrCapacidadBilletes = prmCapBilletes;
@@ -107,11 +104,13 @@ namespace appAlcancia.Dominio
         #region Mutadores
         public bool ponerMonedas(List<clsMoneda> prmLista)
         {
+            //TO DO
             atrMonedas = prmLista;
             return true;
         }
         public bool ponerBilletes(List<clsBillete> prmLista)
         {
+            //TO DO
             atrBilletes = prmLista;
             return true;
         }
