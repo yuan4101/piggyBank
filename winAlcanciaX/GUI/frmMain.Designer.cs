@@ -177,7 +177,7 @@ namespace winAlcanciaX.GUI
             this.txbPassword.PasswordChar = '*';
             this.txbPassword.Size = new System.Drawing.Size(100, 20);
             this.txbPassword.TabIndex = 5;
-            this.txbPassword.Text = "admin";
+            this.txbPassword.Text = "password";
             // 
             // txbUsuario
             // 

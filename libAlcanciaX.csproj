@@ -7,8 +7,8 @@
     <ProjectGuid>{D5C54F70-8F7C-403F-92DC-D334EA47CD45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>appAlcancia.Dominio</RootNamespace>
-    <AssemblyName>libAlcancia</AssemblyName>
+    <RootNamespace>appAlcanciaX.Dominio</RootNamespace>
+    <AssemblyName>libAlcanciaX</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using appAlcanciaX.Server;
 
-namespace Server_AppAlcancia
+namespace appAlcanciaX
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Iniciado servidor...");
-            clsServer atrServer = new clsServer("localhost", 4404);
+            Console.WriteLine("Starting server...");
+            clsServer atrServer = new clsServer("localhost", 6400);
             atrServer.Start();
+            Console.WriteLine("Press a key to exit");
             Console.ReadKey();
         }
     }

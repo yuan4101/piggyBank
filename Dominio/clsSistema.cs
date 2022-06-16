@@ -4,13 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appAlcancia.Dominio
+namespace appAlcanciaX.Dominio
 {
     public class clsSistema
     {
         #region Atributos
         #region Singleton
         private static clsSistema atrInstancia;
+        #endregion
+        #region Propios
+        string indexAlcancia = "0";
+        string indexUsuario = "0";
         #endregion
         #region Asociativos
         private List<clsAlcancia> atrAlcancias = new List<clsAlcancia>();
@@ -38,16 +42,32 @@ namespace appAlcancia.Dominio
         #region Registrador
         public bool registrarUsuario(string prmIDO, string prmNombre, string prmUsuario, string prmContraseña)
         {
+            if (buscarUsuario(prmIDO) != null)
+                return false;
+
             atrUsuarios.Add(new clsUsuario(prmIDO, prmNombre, prmUsuario, prmContraseña));
             return true;
         }
         public bool registrarAlcancia(string prmIDO, string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
         {
+            if (buscarAlcancia(prmIDO) != null)
+                return false;
+
             atrAlcancias.Add(new clsAlcancia(prmIDO, prmDivisa, prmCapMonedas, prmCapBilletes, prmDenMonedas, prmDenBilletes));
             return true;
         }
+        public bool registrarAlcancia(string prmDivisa, int prmCapMonedas, int prmCapBilletes, List<int> prmDenMonedas, List<int> prmDenBilletes)
+        {
+            int varIndice = int.Parse(indexAlcancia);
+            varIndice++;
+            indexAlcancia = varIndice.ToString();
+            return registrarAlcancia(indexAlcancia, prmDivisa, prmCapMonedas, prmCapBilletes, prmDenMonedas, prmDenBilletes);
+        }
         public bool registrarMoneda(clsUsuario prmOwner, string prmIDO, string prmDivisa, int prmDenominacion, int prmAño)
         {
+            if (buscarMoneda(prmIDO) != null)
+                return false;
+
             clsMoneda varMoneda = new clsMoneda(prmOwner, prmIDO, prmDivisa, prmDenominacion, prmAño);
             if (prmOwner != null)
                 prmOwner.agregarMoneda(varMoneda);
@@ -56,6 +76,9 @@ namespace appAlcancia.Dominio
         }
         public bool registrarBillete(clsUsuario prmOwner, string prmSerial, string prmDivisa, int prmDenominacion, int prmAño, int prmMes, int prmDia)
         {
+            if (buscarBillete(prmSerial) != null)
+                return false;
+
             clsBillete varBillete = new clsBillete(prmOwner, prmSerial, prmDivisa, prmDenominacion, prmAño, prmMes, prmDia);
             if (prmOwner != null)
                 prmOwner.agregarBillete(varBillete);
@@ -111,6 +134,12 @@ namespace appAlcancia.Dominio
         }
         #endregion
         #region Validaciones
+        /// <summary>
+        /// Hace uso del metodo validarCredenciales de todos los usuarios existentes en el sistema
+        /// </summary>
+        /// <param name="prmUsuario"></param>
+        /// <param name="prmContraseña"></param>
+        /// <returns>Si la validacion es correcta se retorna el usuario, en caso contrario null</returns>
         public clsUsuario login(string prmUsuario, string prmContraseña)
         {
             foreach (clsUsuario varUsuario in atrUsuarios)
@@ -126,6 +155,15 @@ namespace appAlcancia.Dominio
             {
                 if (varAlcancia.darIDO() == prmIDO)
                     return varAlcancia;
+            }
+            return null;
+        }
+        public clsUsuario buscarUsuario(string prmIDO)
+        {
+            foreach (clsUsuario varUsuario in atrUsuarios)
+            {
+                if (varUsuario.darIDO() == prmIDO)
+                    return varUsuario;
             }
             return null;
         }

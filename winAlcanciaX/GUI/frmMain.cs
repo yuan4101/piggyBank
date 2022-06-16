@@ -3,8 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using winAlcanciaX.serverClient;
-using appAlcancia.Dominio;
+using winAlcanciaX.Client;
 
 namespace winAlcanciaX.GUI
 {
@@ -13,12 +12,12 @@ namespace winAlcanciaX.GUI
         public frmMain()
         {
             InitializeComponent();
-            //clsSistema.darInstancia().registrarUsuario("1", "Administrador", "admin", "password");
         }
-
+        #region Control de ventana
         #region Salir
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            clsClient.darInstancia().disconnect();
             Application.Exit();
         }
         private void btnSalir_MouseEnter(object sender, EventArgs e)
@@ -66,6 +65,40 @@ namespace winAlcanciaX.GUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+        #region Formulario
+        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
+        {
+            Form varFormulario;
+            varFormulario = pnlForms.Controls.OfType<MiForm>().FirstOrDefault();
+            if (varFormulario == null)
+            {
+                varFormulario = new MiForm();
+                varFormulario.TopLevel = false;
+                varFormulario.FormBorderStyle = FormBorderStyle.None;
+                varFormulario.Dock = DockStyle.Fill;
+                varFormulario.BackColor = Color.FromArgb(228, 242, 231);
+                pnlForms.Controls.Add(varFormulario);
+                pnlForms.Tag = varFormulario;
+                varFormulario.Show();
+                varFormulario.BringToFront();
+                varFormulario.FormClosed += new FormClosedEventHandler(CloseForms);
+            }
+            else
+                varFormulario.BringToFront();
+        }
+        private void CloseForms(object sender, FormClosedEventArgs e)
+        {
+            if (Application.OpenForms["frmRegistrarAlcancia"] == null)
+                btnRegistrarAlcancia.BackColor = Color.FromArgb(45, 62, 64);
+
+            if (Application.OpenForms["frmRegistrarMoneda"] == null)
+                btnRegistrarMoneda.BackColor = Color.FromArgb(45, 62, 64);
+
+            if (Application.OpenForms["frmRegistrarBillete"] == null)
+                btnRegistrarBillete.BackColor = Color.FromArgb(45, 62, 64);
+        }
+        #endregion
+        #endregion
         #region Menu lateral
         private void btnRegistrarAlcancia_Click(object sender, EventArgs e)
         {
@@ -84,63 +117,29 @@ namespace winAlcanciaX.GUI
         }
         #endregion
         #region Procedimientos
-        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
-        {
-            Form formulario;
-            formulario = pnlForms.Controls.OfType<MiForm>().FirstOrDefault();
-            if (formulario == null)
-            {
-                formulario = new MiForm();
-                formulario.TopLevel = false;
-                formulario.FormBorderStyle = FormBorderStyle.None;
-                formulario.Dock = DockStyle.Fill;
-                formulario.BackColor = Color.FromArgb(228, 242, 231);
-                pnlForms.Controls.Add(formulario);
-                pnlForms.Tag = formulario;
-                formulario.Show();
-                formulario.BringToFront();
-                formulario.FormClosed += new FormClosedEventHandler(CloseForms);
-            }
-            else
-            {
-                formulario.BringToFront();
-            }
-        }
-        private void CloseForms(object sender, FormClosedEventArgs e)
-        {
-            if (Application.OpenForms["frmRegistrarAlcancia"] == null)
-                btnRegistrarAlcancia.BackColor = Color.FromArgb(45, 62, 64);
-
-            if (Application.OpenForms["frmRegistrarMoneda"] == null)
-                btnRegistrarMoneda.BackColor = Color.FromArgb(45, 62, 64);
-
-            if (Application.OpenForms["frmRegistrarBillete"] == null)
-                btnRegistrarBillete.BackColor = Color.FromArgb(45, 62, 64);
-        }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            clsClient varCliente = new clsClient("localhost", 4404);
+            clsClient.darInstancia().connect();
 
-            string varUsuario = txbUsuario.Text;
-            string varContraseña = txbPassword.Text;
+            string varDataSend = "login" + "," + txbUsuario.Text + "," + txbPassword.Text;
 
-            varCliente.Start();
-
-            varCliente.Send(varUsuario);
-            varCliente.Send(varContraseña);
-
-            if (int.Parse(varCliente.Receive().Split(',')[0]) == 1)
+            clsClient.darInstancia().Send(varDataSend);
+            string varDataReceived = clsClient.darInstancia().Receive();
+            if (int.Parse(varDataReceived.Split(',')[0]) == 1)
             {
-                lblStatus.Text = "Hola " + varUsuario + " Bienvenido";
+                lblStatus.Text = varDataReceived.Split(',')[1];
                 btnIngresar.Enabled = false;
                 txbUsuario.Enabled = false;
                 txbPassword.Enabled = false;
                 btnRegistrarAlcancia.Enabled = true;
                 btnRegistrarMoneda.Enabled = true;
                 btnRegistrarBillete.Enabled = true;
-            } 
+            }
             else
-                lblStatus.Text = "El usuario o la contraseña son incorrectos";
+            {
+                lblStatus.Text = varDataReceived.Split(',')[1];
+                clsClient.darInstancia().disconnect();
+            } 
         }
         #endregion
     }

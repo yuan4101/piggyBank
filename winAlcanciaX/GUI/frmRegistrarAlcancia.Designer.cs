@@ -105,6 +105,7 @@
             this.txbDenBilletes.Name = "txbDenBilletes";
             this.txbDenBilletes.Size = new System.Drawing.Size(200, 20);
             this.txbDenBilletes.TabIndex = 79;
+            this.txbDenBilletes.Text = "1000.2000.5000";
             // 
             // txbCapBilletes
             // 
@@ -113,6 +114,7 @@
             this.txbCapBilletes.Name = "txbCapBilletes";
             this.txbCapBilletes.Size = new System.Drawing.Size(200, 20);
             this.txbCapBilletes.TabIndex = 78;
+            this.txbCapBilletes.Text = "5";
             // 
             // txbDenMonedas
             // 
@@ -121,6 +123,7 @@
             this.txbDenMonedas.Name = "txbDenMonedas";
             this.txbDenMonedas.Size = new System.Drawing.Size(200, 20);
             this.txbDenMonedas.TabIndex = 77;
+            this.txbDenMonedas.Text = "100.200.500";
             // 
             // txbCapMonedas
             // 
@@ -129,6 +132,7 @@
             this.txbCapMonedas.Name = "txbCapMonedas";
             this.txbCapMonedas.Size = new System.Drawing.Size(200, 20);
             this.txbCapMonedas.TabIndex = 76;
+            this.txbCapMonedas.Text = "10";
             // 
             // txbDivisa
             // 
@@ -137,6 +141,7 @@
             this.txbDivisa.Name = "txbDivisa";
             this.txbDivisa.Size = new System.Drawing.Size(200, 20);
             this.txbDivisa.TabIndex = 75;
+            this.txbDivisa.Text = "COP";
             // 
             // lblDenBilletes
             // 
@@ -205,6 +210,7 @@
             this.txbIdentificador.Name = "txbIdentificador";
             this.txbIdentificador.Size = new System.Drawing.Size(200, 20);
             this.txbIdentificador.TabIndex = 81;
+            this.txbIdentificador.Text = "1";
             // 
             // frmRegistrarAlcancia
             // 

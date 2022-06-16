@@ -1,59 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 
 namespace winAlcanciaX.Client
 {
-    class clsClient
+    public class clsClient
     {
         IPHostEntry atrHost;
-        IPAddress atrIpAdrres;
+        IPAddress atrIpAddress;
         IPEndPoint atrEndPoint;
-
-        Socket atrSocket_Client;
-
+        Socket atrSocketServer = null;
+        private static clsClient atrClient = null;
+        public static clsClient darInstancia()
+        {
+            if (atrClient == null)
+                return atrClient = new clsClient("localhost", 6400);
+            return atrClient;
+        }
         public clsClient(string prmIp, int prmPort)
         {
             atrHost = Dns.GetHostEntry(prmIp);
-            atrIpAdrres = atrHost.AddressList[0];
-            atrEndPoint = new IPEndPoint(atrIpAdrres, prmPort);
-
-            atrSocket_Client = new Socket(atrIpAdrres.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            atrIpAddress = atrHost.AddressList[1];
+            atrEndPoint = new IPEndPoint(atrIpAddress, prmPort);
         }
-
-        public void Start()
+        public void connect()
         {
-            atrSocket_Client.Connect(atrEndPoint);
+            if (atrSocketServer == null)
+                atrSocketServer = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                atrSocketServer.Connect(atrEndPoint);
+                Console.WriteLine("Successfully connected.\n");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You're already connected.\n");
+            }
         }
-
-        //Envia mensaje al servidor
-        public void Send(String prmMensaje) 
+        public void disconnect()
         {
-            byte[] varByteMensaje = Encoding.ASCII.GetBytes(prmMensaje);
-            atrSocket_Client.Send(varByteMensaje);
+            try
+            {
+                atrSocketServer.Disconnect(false);
+                atrSocketServer = null;
+                Console.WriteLine("Successfully disconnected.\n");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("You're already disconnected.\n");
+            }
         }
-
+        public void Send(string prmData) 
+        {
+            if (atrSocketServer == null)
+                return;
+            byte[] varSendData = new byte[1024];
+            varSendData = Encoding.Default.GetBytes(prmData);
+            atrSocketServer.Send(varSendData);
+            Console.WriteLine("Data sent.\n");
+        }
         public string Receive() 
         {
-            byte[] varBuffer = new byte[1024];
-            atrSocket_Client.Receive(varBuffer);
-            return byteToString(varBuffer);
+            byte[] varDataReceived = new byte[1024];
+            int varArraySize;
+            varArraySize = atrSocketServer.Receive(varDataReceived, 0, varDataReceived.Length, 0);
+            Array.Resize(ref varDataReceived, varArraySize);
+            return Encoding.Default.GetString(varDataReceived);
         }
-
-        public string byteToString(byte[] prmBuffer)
-        {
-            string varMensaje;
-            int varEndIndex;
-            varMensaje = Encoding.ASCII.GetString(prmBuffer);
-            varEndIndex = varMensaje.IndexOf('\0');
-            if (varEndIndex > 0)
-                varMensaje = varMensaje.Substring(0, varEndIndex);
-            return varMensaje;
-        }
-
     }
 }

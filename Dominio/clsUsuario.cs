@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appAlcancia.Dominio
+namespace appAlcanciaX.Dominio
 {
     public class clsUsuario
     {
@@ -30,6 +30,10 @@ namespace appAlcancia.Dominio
         public clsUsuario() { }
         #endregion
         #region Accesores
+        public string darIDO()
+        {
+            return atrIDO;
+        }
         public string darNombre()
         {
             return atrNombre;

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libAlcanciaX", "libAlcancia
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winAlcanciaX", "winAlcanciaX\winAlcanciaX.csproj", "{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server-AppAlcancia", "Server-AppAlcancia\Server-AppAlcancia.csproj", "{5F790C6A-21E8-4617-B405-F487E8F85A49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerAppAlcanciaX", "Server-AppAlcancia\ServerAppAlcanciaX.csproj", "{5F790C6A-21E8-4617-B405-F487E8F85A49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

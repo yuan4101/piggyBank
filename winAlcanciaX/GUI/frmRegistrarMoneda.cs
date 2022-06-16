@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using appAlcancia.Dominio;
+using winAlcanciaX.Client;
 
 namespace winAlcanciaX.GUI
 {
@@ -24,16 +17,11 @@ namespace winAlcanciaX.GUI
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (clsSistema.darInstancia().buscarMoneda(txbIdentificador.Text) != null)
-            {
-                lblRegistrarMoneda.Text = "Ya existe una moneda con ese identificador";
-            }
-            else
-            {
-                clsSistema.darInstancia().registrarMoneda(null, txbIdentificador.Text, txbDivisa.Text, int.Parse(txbDenominacion.Text), int.Parse(txbAño.Text));
-                clsMoneda varMoneda = clsSistema.darInstancia().buscarMoneda(txbIdentificador.Text);
-                lblRegistrarMoneda.Text = "Se ha creado la moneda con los siguientes valores:\n" + varMoneda.ToString();
-            }
+            string varDataSend = "regMoneda" + "," + "" + "," + txbIdentificador.Text + "," + txbDivisa.Text
+                + "," + txbDenominacion.Text + "," + txbAño.Text;
+
+            clsClient.darInstancia().Send(varDataSend);
+            lblRegistrarMoneda.Text = clsClient.darInstancia().Receive().Split(',')[1];
             lblRegistrarMoneda.Visible = true;
         }
     }
