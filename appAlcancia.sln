@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libAlcancia", "libAlcancia.csproj", "{D5C54F70-8F7C-403F-92DC-D334EA47CD45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uTestAlcancia", "uTestAlcancia\uTestAlcancia.csproj", "{C281A490-03EE-40AA-B097-9892713549EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uTestAlcancia", "uTestAlcancia\uTestAlcancia.csproj", "{C41BB15C-6C6A-4AB6-A7CE-5AD8AA55B0C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uTestAlcanciaF", "uTestAlcanciaF\uTestAlcanciaF.csproj", "{C281A490-03EE-40AA-B097-9892713549EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41BB15C-6C6A-4AB6-A7CE-5AD8AA55B0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41BB15C-6C6A-4AB6-A7CE-5AD8AA55B0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41BB15C-6C6A-4AB6-A7CE-5AD8AA55B0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41BB15C-6C6A-4AB6-A7CE-5AD8AA55B0C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C281A490-03EE-40AA-B097-9892713549EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C281A490-03EE-40AA-B097-9892713549EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C281A490-03EE-40AA-B097-9892713549EE}.Release|Any CPU.ActiveCfg = Release|Any CPU

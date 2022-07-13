@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C41BB15C-6C6A-4AB6-A7CE-5AD8AA55B0C7}</ProjectGuid>
+    <ProjectGuid>{C281A490-03EE-40AA-B097-9892713549EE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>uTestAlcancia</RootNamespace>
+    <RootNamespace>appAlcancia.Servicios.Pruebas</RootNamespace>
     <AssemblyName>uTestAlcancia</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -49,10 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="uTestAlcanciaF.cs" />
+    <Compile Include="uTestBilleteF.cs" />
+    <Compile Include="uTestMonedaF.cs" />
+    <Compile Include="uTestSistemaF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="uTestAlcancia.cs" />
-    <Compile Include="uTestBillete.cs" />
-    <Compile Include="uTestMoneda.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

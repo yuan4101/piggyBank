@@ -202,6 +202,62 @@ namespace appAlcancia.Dominio
             #endregion
 
         }
+        public void generar2()
+        {
+            atrCapacidadMonedas = 22;
+            atrCapacidadBilletes = 11;
+
+            #region Universo Monedas
+            atrDenominacionesMonedas = new List<int> { 100, 200, 500 };
+            atrSaldoDenominacionesMonedas = new List<int> { 1100, 600, 3000 };
+            atrConteoDenominacionesMonedas = new List<int> { 11, 3, 6 };
+            atrSaldoMonedas = 4700;
+            atrMonedas = new List<clsMoneda>();
+            atrMonedas.Add(new clsMoneda("0", "COP", 100, 2011));
+            atrMonedas.Add(new clsMoneda("1", "COP", 100, 1999));
+            atrMonedas.Add(new clsMoneda("2", "COP", 100, 2010));
+            atrMonedas.Add(new clsMoneda("3", "COP", 100, 2000));
+            atrMonedas.Add(new clsMoneda("4", "COP", 100, 2009));
+            atrMonedas.Add(new clsMoneda("5", "COP", 100, 2010));
+            atrMonedas.Add(new clsMoneda("6", "COP", 100, 1999));
+            atrMonedas.Add(new clsMoneda("7", "COP", 100, 2010));
+            atrMonedas.Add(new clsMoneda("8", "COP", 100, 2000));
+            atrMonedas.Add(new clsMoneda("9", "COP", 100, 2009));
+            atrMonedas.Add(new clsMoneda("10", "COP", 100, 2010));
+
+            atrMonedas.Add(new clsMoneda("11", "COP", 200, 2010));
+            atrMonedas.Add(new clsMoneda("12", "COP", 200, 2011));
+            atrMonedas.Add(new clsMoneda("13", "COP", 200, 2010));
+
+            atrMonedas.Add(new clsMoneda("14", "COP", 500, 2010));
+            atrMonedas.Add(new clsMoneda("15", "COP", 500, 2011));
+            atrMonedas.Add(new clsMoneda("16", "COP", 500, 2010));
+            atrMonedas.Add(new clsMoneda("17", "COP", 500, 2010));
+            atrMonedas.Add(new clsMoneda("18", "COP", 500, 2011));
+            atrMonedas.Add(new clsMoneda("19", "COP", 500, 2010));
+            #endregion
+            #region Universo Billetes
+            atrDenominacionesBilletes = new List<int> { 1000, 2000, 5000 };
+            atrSaldoDenominacionesBilletes = new List<int> { 3000, 10000, 5000 };
+            atrConteoDenominacionesBilletes = new List<int> { 3, 5, 1 };
+            atrSaldoBilletes = 18000;
+
+            atrBilletes = new List<clsBillete>();
+            atrBilletes.Add(new clsBillete("ABC123", "COP", 1000, 2010, 11, 4));
+            atrBilletes.Add(new clsBillete("ABC456", "COP", 1000, 2011, 8, 17));
+            atrBilletes.Add(new clsBillete("ABC789", "COP", 1000, 2009, 12, 27));
+
+            atrBilletes.Add(new clsBillete("DEF789", "COP", 2000, 2009, 12, 27));
+            atrBilletes.Add(new clsBillete("GHI789", "COP", 2000, 2009, 12, 27));
+            atrBilletes.Add(new clsBillete("NMO789", "COP", 2000, 2009, 12, 27));
+            atrBilletes.Add(new clsBillete("PQR789", "COP", 2000, 2011, 12, 27));
+            atrBilletes.Add(new clsBillete("XYZ789", "COP", 2000, 2019, 12, 27));
+
+            atrBilletes.Add(new clsBillete("AAX123", "COP", 5000, 2019, 11, 30));
+            #endregion
+
+            atrSaldoTotal = 22700;
+        }
         #endregion
         #endregion
     }
