@@ -19,45 +19,40 @@ namespace appAlcancia.Servicios
             {
                 if (prmDia >= 1 && prmDia <= 30)
                 {
-                    if (prmMes == 4 && prmMes == 6 && prmMes == 9 && prmMes == 11)
+                    if (prmMes == 4 || prmMes == 6 || prmMes == 9 || prmMes == 11)
                         return true;
-                    return false;
                 }
                 if (prmDia >= 1 && prmDia <= 28)
                 {
                     if (prmMes == 2)
                         return true;
-                    return false;
                 }
-                if (prmMes == 1 && prmMes == 3 && prmMes == 5 && prmMes == 7 && prmMes == 8 && prmMes == 10 && prmMes == 12)
+                if (prmDia >= 1 && prmDia <= 31)
                 {
-                    if (prmMes == 2)
+                    if (prmMes == 1 || prmMes == 3 || prmMes == 5 || prmMes == 7 || prmMes == 8 || prmMes == 10 || prmMes == 12)
+                    {
                         return true;
-                    return false;
+                    }
                 }
             }
-            
             return false;
         }
         public static bool esValidoDia(int prmDia, int prmMes)
         {
-            if (prmMes == 1 && prmMes == 3 && prmMes == 5 && prmMes == 7 && prmMes == 8 && prmMes == 10 && prmMes == 12)
+            if (prmMes == 1 || prmMes == 3 || prmMes == 5 || prmMes == 7 || prmMes == 8 || prmMes == 10 || prmMes == 12)
             {
                 if (prmDia >= 1 && prmDia <= 31)
                     return true;
-                return false;
             }
             if (prmMes == 2)
             {
                 if (prmDia >= 1 && prmDia <= 28)
                     return true;
-                return false;
             }
-            if (prmMes == 4 && prmMes == 6 && prmMes == 9 && prmMes == 11)
+            if (prmMes == 4 || prmMes == 6 || prmMes == 9 || prmMes == 11)
             {
                 if (prmDia >= 1 && prmDia <= 30)
                     return true;
-                return false;
             }
             return false;
         }

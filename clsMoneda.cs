@@ -107,6 +107,5 @@ namespace appAlcancia.Dominio
             return 0;
         }
         #endregion
-
     }
 }
