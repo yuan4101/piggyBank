@@ -64,7 +64,7 @@ namespace appAlcancia.Dominio
         #region Mutadores
         public bool ponerDenominacion(int prmValor)
         {
-            if (clsParametrizador.esValidoRangoDenominacion(prmValor))
+            if (clsParametrizador.esValidoRangoDenominacion(prmValor) && atrAlcancia == null)
             {
                 atrDenominacion = prmValor;
                 return true;
@@ -82,8 +82,12 @@ namespace appAlcancia.Dominio
         }
         public bool ponerDivisa(string prmDivisa)
         {
-            atrDivisa = prmDivisa;
-            return true;
+            if (atrAlcancia == null)
+            {
+                atrDivisa = prmDivisa;
+                return true;
+            }
+            return false;
         }
         public bool ponerAlcancia(clsAlcancia prmObjeto) 
         {

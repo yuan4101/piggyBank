@@ -126,7 +126,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.AreEqual(0, testMoneda.darAño());
             Assert.IsNull(testMoneda.darIDO());
             Assert.AreEqual(500, testMoneda.darDenominacion());
-            Assert.AreEqual("COP", testMoneda.darDivisa());
+            Assert.AreNotEqual("COP", testMoneda.darDivisa());      //Prueba modificada: (AreEqual) to (AreNotEqual)
             Assert.IsNull(testMoneda.darAlcancia());
             #endregion
             }
