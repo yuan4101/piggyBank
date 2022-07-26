@@ -7,7 +7,7 @@ using appAlcancia.Servicios;
 
 namespace appAlcancia.Dominio
 {
-    public class clsBillete : clsMoneda
+    public class clsBillete : clsMoneda, IComparable
     {
         #region Atributos
         private int atrMes;
@@ -70,6 +70,15 @@ namespace appAlcancia.Dominio
             atrDenominacion = 1000;
             atrDivisa = "COP";
             atrAlcancia = new clsAlcancia();
+        }
+        public new int CompareTo(object prmBillete)
+        {
+            clsBillete varObjeto = (clsBillete)Convert.ChangeType(prmBillete, typeof(clsBillete));
+            if (atrIDO == varObjeto.atrIDO && atrDivisa == varObjeto.atrDivisa && atrDenominacion == varObjeto.atrDenominacion && atrAño == varObjeto.atrAño)
+                return 0;
+            if (atrDenominacion > varObjeto.atrDenominacion)
+                return 1;
+            return -1;
         }
         #endregion
         #endregion

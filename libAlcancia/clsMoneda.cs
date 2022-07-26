@@ -107,8 +107,12 @@ namespace appAlcancia.Dominio
         #endregion
         public int CompareTo(object prmMoneda)
         {
-            //TO DO
-            return 0;
+            clsMoneda varObjeto = (clsMoneda)Convert.ChangeType(prmMoneda, typeof(clsMoneda));
+            if (atrIDO == varObjeto.atrIDO && atrDivisa == varObjeto.atrDivisa && atrDenominacion == varObjeto.atrDenominacion && atrAño == varObjeto.atrAño)
+                return 0;
+            if (atrDenominacion > varObjeto.atrDenominacion)
+                return 1;
+            return -1;
         }
         #endregion
     }
