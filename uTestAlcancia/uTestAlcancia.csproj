@@ -58,7 +58,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libAlcancia.csproj">
+    <ProjectReference Include="..\libAlcancia\libAlcancia.csproj">
       <Project>{d5c54f70-8f7c-403f-92dc-d334ea47cd45}</Project>
       <Name>libAlcancia</Name>
     </ProjectReference>
