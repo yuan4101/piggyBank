@@ -172,6 +172,7 @@ namespace appAlcancia.Dominio
             atrDenominacionesMonedas = new List<int> { 1000, 500, 200, 100, 50 };
             atrSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100, 0 };
             atrConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1, 0 };
+            atrSaldoMonedas = 3500;                                                         //Se agrego saldoMonedas
 
             atrMonedas.Add(new clsMoneda("1", "COP", 1000, 1990));
             atrMonedas.Add(new clsMoneda("2", "COP", 1000, 1992));
@@ -187,9 +188,10 @@ namespace appAlcancia.Dominio
             #endregion
             #region Billetes
             atrCapacidadBilletes = 10;
-            atrDenominacionesBilletes = new List<int> { 1000, 2000, 5000, 10000 };
-            atrSaldoDenominacionesBilletes = new List<int> { 1000, 2000, 5000, 10000 };
-            atrConteoDenominacionesMonedas = new List<int> { 1, 1, 1, 1 };
+            atrDenominacionesBilletes = new List<int> { 1000, 5000, 2000, 10000 };          //Modificado: Swap position 5000 <> 2000
+            atrSaldoDenominacionesBilletes = new List<int> { 1000, 5000, 2000, 10000 };     //Modificado: Swap position 5000 <> 2000
+            atrConteoDenominacionesBilletes = new List<int> { 1, 1, 1, 1 };                 //Modificado: (denominacionesMonedas) to (denominacionesBilletes)
+            atrSaldoBilletes = 18000;                                                       //Se agrego saldoBilletes
 
             atrBilletes.Add(new clsBillete("ABC123", "COP", 1000, 1990, 11, 5));
             atrBilletes.Add(new clsBillete("QWE789", "COP", 2000, 1992, 7, 18));
@@ -198,6 +200,8 @@ namespace appAlcancia.Dominio
 
             foreach (clsBillete varObjeto in atrBilletes)
                 varObjeto.ponerAlcancia(this);
+
+            atrSaldoTotal = 21500;                                                          //Se agrego saldoTotal
 
             #endregion
 
