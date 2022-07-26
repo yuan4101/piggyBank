@@ -43,6 +43,7 @@ namespace appAlcancia.Servicios.Pruebas
             testDenominacionesMonedas = new List<int> { 1000, 500, 200, 100, 50 };
             testSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100, 0 };
             testConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1, 0 };
+
             #endregion
             #region Billetes
             testBilletes = new List<clsBillete>();

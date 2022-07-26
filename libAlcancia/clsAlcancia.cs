@@ -104,10 +104,15 @@ namespace appAlcancia.Dominio
         #region Mutadores
         public bool ponerMonedas(List<clsMoneda> prmLista)
         {
-            //TO DO
-            atrMonedas = prmLista;
+            if (ponerDivisa(prmLista[0].darDivisa()))
+                if (!verificaDivisaLista(prmLista))
+                    return false;
+            if (atrCapacidadMonedas < atrCapacidadMonedas + atrMonedas.Count)
+                atrMonedas.AddRange(prmLista);
+            calcularEstadoCuenta();
             return true;
         }
+
         public bool ponerBilletes(List<clsBillete> prmLista)
         {
             //TO DO
@@ -126,8 +131,10 @@ namespace appAlcancia.Dominio
         }
         public bool ponerDivisa(string prmNombre)
         {
+            if (atrDivisa != null)
+                return false;
             atrDivisa = prmNombre;
-            return true;
+            return calcularEstadoCuenta();
         }
         public bool ponerDenominacionesMonedas(List<int> prmColeccion)
         {
@@ -141,8 +148,30 @@ namespace appAlcancia.Dominio
         }
         public bool calcularEstadoCuenta()
         {
-            //TODO : IMPLEMENTAR
+            calcularSaldoTotal();
             return false;
+        }
+        #endregion
+        #region Utilitario
+        private void calcularSaldoTotal()
+        {
+            for (int varIndex = 0; varIndex < atrMonedas.Count; varIndex++)
+            {
+                atrSaldoTotal += atrMonedas[varIndex].darDenominacion();
+            }
+            for (int varIndex = 0; varIndex < atrBilletes.Count; varIndex++)
+            {
+                atrSaldoTotal += atrBilletes[varIndex].darDenominacion();
+            }
+        }
+        private bool verificaDivisaLista(List<clsMoneda> prmLista)
+        {
+            for (int varIndex = 0; varIndex < prmLista.Count; varIndex++)
+            {
+                if (!prmLista[varIndex].darDivisa().Equals(atrDivisa))
+                    return false;
+            }
+            return true;
         }
         #endregion
         #region Transacciones

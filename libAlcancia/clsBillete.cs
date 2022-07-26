@@ -73,5 +73,17 @@ namespace appAlcancia.Dominio
         }
         #endregion
         #endregion
+        #region Comparadores
+        public new int CompareTo(object obj)
+        {
+            clsBillete varObjeto = (clsBillete)Convert.ChangeType(obj, typeof(clsBillete));
+            if (atrIDO == varObjeto.atrIDO && atrDivisa == varObjeto.atrDivisa && atrDenominacion == varObjeto.atrDenominacion && atrAño == varObjeto.atrAño
+                && atrDia == varObjeto.atrDia && atrMes == varObjeto.atrMes)
+                return 0;
+            if (atrDenominacion > varObjeto.atrDenominacion)
+                return 1;
+            return -1;
+        }
+        #endregion
     }
 }

@@ -105,11 +105,17 @@ namespace appAlcancia.Dominio
             atrAlcancia = new clsAlcancia();
         }
         #endregion
-        public int CompareTo(object prmMoneda)
+        #region Comparadores
+        public int CompareTo(object obj)
         {
-            //TO DO
-            return 0;
+            clsMoneda varObjeto = (clsMoneda)Convert.ChangeType(obj, typeof(clsMoneda));
+            if (atrIDO == varObjeto.atrIDO && atrDivisa == varObjeto.atrDivisa && atrDenominacion == varObjeto.atrDenominacion && atrAño == varObjeto.atrAño)
+                return 0;
+            if (atrDenominacion > varObjeto.atrDenominacion)
+                return 1;
+            return -1;
         }
+        #endregion
         #endregion
     }
 }
