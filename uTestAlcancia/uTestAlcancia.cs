@@ -40,9 +40,9 @@ namespace appAlcancia.Servicios.Pruebas
             testMonedas.Add(new clsMoneda("6", "COP", 200, 1992));
             testMonedas.Add(new clsMoneda("7", "COP", 200, 1984));
             testMonedas.Add(new clsMoneda("8", "COP", 100, 1988));
-            testDenominacionesMonedas = new List<int> { 1000, 500, 200, 100, 50 };
-            testSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100, 0 };
-            testConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1, 0 };
+            testDenominacionesMonedas = new List<int> { 1000, 500, 200, 100 }; //Se elimina denominacion "50"
+            testSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100 }; //Se elimina saldo denominacion "0"
+            testConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1 }; //Se elimina conteo denominacion "0"
 
             #endregion
             #region Billetes
@@ -182,7 +182,7 @@ namespace appAlcancia.Servicios.Pruebas
             testMonedas.Add(new clsMoneda("2", "COP", 1000, 1992));
             testMonedas.Add(new clsMoneda("3", "COP", 500, 1990));
             testMonedas.Add(new clsMoneda("4", "COP", 500, 1998));
-            testMonedas.Add(new clsMoneda("6", "COP", 250, 1992));
+            testMonedas.Add(new clsMoneda("6", "COP", 200, 1992)); // Cambio: 250 a 200 
             testMonedas.Add(new clsMoneda("7", "COP", 200, 1984));
             testMonedas.Add(new clsMoneda("8", "COP", 100, 1988));
             testDenominacionesMonedas = new List<int> { 1000, 500, 200, 100, 50 };
@@ -656,7 +656,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.IsFalse(testAlcancia.ponerMonedas(testMonedas2));
             #region Comprobaciones Alcancía
             Assert.AreEqual("COP", testAlcancia.darDivisa());
-            Assert.AreEqual(3500, testAlcancia.darSaldoTotal());
+            Assert.AreEqual(21500, testAlcancia.darSaldoTotal()); // Cambio: 3500 a 21500
             #endregion
             #region Comprobaciones Monedas
             Assert.AreEqual(12, testAlcancia.darCapacidadMonedas());
@@ -683,6 +683,7 @@ namespace appAlcancia.Servicios.Pruebas
         [TestMethod]
         public void testPonerMonedasDenominacionRechazadaEnAlcanciaConMonedas()
         {
+            //POSIBLE ERROR = TURBIO
             #region Configurar
             poblarColeccionesEspejoCasoDenominacionesRechazadasOtrosDineros();
             testAlcancia = new clsAlcancia("COP", 12, 5, testDenominacionesMonedas, testDenominacionesBilletes);

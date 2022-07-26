@@ -106,7 +106,7 @@ namespace appAlcancia.Dominio
         }
         #endregion
         #region Comparadores
-        public int CompareTo(object obj)
+        public int CompareTo(object prmMoneda)
         {
             clsMoneda varObjeto = (clsMoneda)Convert.ChangeType(prmMoneda, typeof(clsMoneda));
             if (atrIDO == varObjeto.atrIDO && atrDivisa == varObjeto.atrDivisa && atrDenominacion == varObjeto.atrDenominacion && atrAño == varObjeto.atrAño)
