@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using appAlcancia.Servicios;
 
 namespace appAlcancia.Dominio
 {
@@ -177,19 +178,105 @@ namespace appAlcancia.Dominio
         #region Transacciones
         public bool consignar(clsMoneda prmItem)
         {
-            throw new NotImplementedException();
+            if (atrMonedas.Count() == atrCapacidadMonedas)
+                return false;
+
+            int varDenominacion = prmItem.darDenominacion();
+
+            if (clsParametrizador.esValidoRangoDenominacion(varDenominacion))
+            {
+                atrMonedas.Add(prmItem);
+
+                if (atrDenominacionesMonedas.Contains(varDenominacion))
+                {
+                    int varIndice = atrDenominacionesMonedas.IndexOf(varDenominacion);
+                    atrConteoDenominacionesMonedas[varIndice]++;
+                    atrSaldoDenominacionesMonedas[varIndice] += varDenominacion;
+                }
+                else
+                    return false;
+
+                atrSaldoMonedas += varDenominacion;
+                atrSaldoTotal = atrSaldoMonedas + atrSaldoBilletes;
+                return true;
+            }
+            return false;
         }
         public bool consignar(clsBillete prmItem)
         {
-            throw new NotImplementedException();
+            if (atrBilletes.Count() == atrCapacidadBilletes)
+                return false;
+
+            int varDenominacion =  prmItem.darDenominacion();
+
+            if (clsParametrizador.esValidoRangoDenominacion(varDenominacion))
+            {
+                atrBilletes.Add(prmItem);
+
+                if (atrDenominacionesBilletes.Contains(varDenominacion))
+                {
+                    int varIndice = atrDenominacionesBilletes.IndexOf(varDenominacion);
+                    atrConteoDenominacionesBilletes[varIndice]++;
+                    atrSaldoDenominacionesBilletes[varIndice] += varDenominacion;
+                }
+                else
+                    return false;
+                
+                atrSaldoBilletes += varDenominacion;
+                atrSaldoTotal = atrSaldoMonedas + atrSaldoBilletes;
+                return true;
+            }
+            return false;
         }
-        public bool retirarMoneda(string prmIDO)
+        public clsMoneda retirarMoneda(string prmIDO)
         {
-            throw new NotImplementedException();
+            clsMoneda varMoneda = buscarMoneda(prmIDO);
+            if (varMoneda == null)
+                return null;
+
+            atrMonedas.Remove(varMoneda);
+            int varDenominacion = varMoneda.darDenominacion();
+            int varIndice = atrDenominacionesMonedas.IndexOf(varDenominacion);
+            atrConteoDenominacionesMonedas[varIndice]--;
+            atrSaldoDenominacionesMonedas[varIndice] -= varDenominacion;
+            atrSaldoMonedas -= varDenominacion;
+            atrSaldoTotal = atrSaldoMonedas + atrSaldoBilletes;
+            return varMoneda;
         }
-        public bool retirarBillete(string prmSerial)
+        public clsBillete retirarBillete(string prmSerial)
         {
-            throw new NotImplementedException();
+            clsBillete varBillete = buscarBillete(prmSerial);
+            if (varBillete == null)
+                return null;
+
+            atrBilletes.Remove(varBillete);
+            int varDenominacion = varBillete.darDenominacion();
+            int varIndice = atrDenominacionesBilletes.IndexOf(varDenominacion);
+            atrConteoDenominacionesBilletes[varIndice]--;
+            atrSaldoDenominacionesBilletes[varIndice] -= varDenominacion;
+            atrSaldoBilletes -= varDenominacion;
+            atrSaldoTotal = atrSaldoMonedas + atrSaldoBilletes;
+            return varBillete;
+        }
+        #endregion
+        #region MyRegion
+        public clsMoneda buscarMoneda(string prmIDO)
+        {
+            foreach (var varItem in atrMonedas)
+            {
+                if (varItem.darIDO() == prmIDO)
+                    return varItem;
+            }
+            return null;
+        }
+        public clsBillete buscarBillete(string prmSerial)
+        {
+            foreach (var varItem in atrBilletes)
+            {
+                if (varItem.darSerial() == prmSerial)
+                    return varItem;
+            }
+            return null;
         }
         #endregion
         #region Testing
@@ -223,8 +310,8 @@ namespace appAlcancia.Dominio
             atrSaldoBilletes = 18000;                                                       //Se agrego saldoBilletes
 
             atrBilletes.Add(new clsBillete("ABC123", "COP", 1000, 1990, 11, 5));
+            atrBilletes.Add(new clsBillete("CDE456", "COP", 5000, 1990, 4, 16));            //Se modifico el orden del add (Primero la denominacion de 5000 y luego la de 2000)
             atrBilletes.Add(new clsBillete("QWE789", "COP", 2000, 1992, 7, 18));
-            atrBilletes.Add(new clsBillete("CDE456", "COP", 5000, 1990, 4, 16));
             atrBilletes.Add(new clsBillete("YUI900", "COP", 10000, 1988, 12, 27));
 
             foreach (clsBillete varObjeto in atrBilletes)
