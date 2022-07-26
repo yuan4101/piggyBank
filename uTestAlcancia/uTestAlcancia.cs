@@ -56,7 +56,7 @@ namespace appAlcancia.Servicios.Pruebas
             #endregion
             }
         public void poblarColeccionesEspejoCasoDistintaDivisa()
-            {
+        {
             #region Monedas
             testMonedas = new List<clsMoneda>();
             testMonedas.Add(new clsMoneda("1", "COP", 1000, 1990));
@@ -66,6 +66,9 @@ namespace appAlcancia.Servicios.Pruebas
             testMonedas.Add(new clsMoneda("6", "COP", 200, 1992));
             testMonedas.Add(new clsMoneda("7", "COP", 200, 1984));
             testMonedas.Add(new clsMoneda("8", "COP", 100, 1988));
+            testDenominacionesMonedas = new List<int> { 1000, 500, 200, 100, 50 };
+            testSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100, 0 };
+            testConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1, 0 };
             #endregion
             #region Billetes
             testBilletes = new List<clsBillete>();
@@ -73,8 +76,11 @@ namespace appAlcancia.Servicios.Pruebas
             testBilletes.Add(new clsBillete("CDE456", "USD", 5000, 1990, 4, 16));
             testBilletes.Add(new clsBillete("QWE789", "COP", 2000, 1992, 7, 18));
             testBilletes.Add(new clsBillete("YUI900", "COP", 10000, 1988, 12, 27));
+            testDenominacionesBilletes = new List<int> { 1000, 5000, 2000, 10000 };
+            testSaldoDenominacionesBilletes = new List<int> { 1000, 5000, 2000, 10000 };
+            testConteoDenominacionesBilletes = new List<int> { 1, 1, 1, 1 };
             #endregion
-            }
+        }
         public void poblarColeccionesEspejoCasoDenominacionesRechazadas()
             {
             #region Monedas
@@ -470,7 +476,7 @@ namespace appAlcancia.Servicios.Pruebas
             }
         [TestMethod]
         public void testPonerMonedasDistintaDivisaConAlcanciaVacia()
-            {
+        {
             #region Configurar
             testAlcancia = new clsAlcancia();
             poblarColeccionesEspejoCasoDistintaDivisa();
@@ -488,8 +494,9 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.AreEqual(0, testAlcancia.darDenominacionesMonedas().Count);
             Assert.AreEqual(0, testAlcancia.darSaldoDenominacionesMonedas().Count);
             Assert.AreEqual(0, testAlcancia.darConteoDenominacionesMonedas().Count);
-            foreach (clsMoneda testMoneda in testMonedas)
-                Assert.AreEqual(null, testMoneda.darAlcancia());
+
+            foreach (clsMoneda testMoneda in testAlcancia.darMonedas())
+                Assert.AreEqual(testAlcancia, testMoneda.darAlcancia());
             #endregion
             #region Comprobaciones Billetes
             Assert.AreEqual(0, testAlcancia.darCapacidadBilletes());
@@ -500,7 +507,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.AreEqual(0, testAlcancia.darConteoDenominacionesBilletes().Count);
             #endregion
             #endregion
-            }
+        }
         [TestMethod]
         public void testPonerMonedasIgualDivisaConAlcanciaVaciaConfigurada()
             {
@@ -602,7 +609,7 @@ namespace appAlcancia.Servicios.Pruebas
             }
         [TestMethod]
         public void testPonerMonedasIgualDivisaEnAlcanciaConMonedas()
-            {
+        {
             #region Configurar
             poblarColeccionesEspejoIgualDivisaCasoOtrosDineros();
             testAlcancia = new clsAlcancia("COP", 12, 5, testDenominacionesMonedas, testDenominacionesBilletes);
@@ -612,10 +619,10 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.IsTrue(testAlcancia.ponerMonedas(testMonedas2));
             #region Comprobaciones Alcancía
             Assert.AreEqual("COP", testAlcancia.darDivisa());
-            Assert.AreEqual(5550, testAlcancia.darSaldoTotal());
+            Assert.AreEqual(23550, testAlcancia.darSaldoTotal());
             #endregion
             #region Comprobaciones Monedas
-            Assert.AreEqual(12, testAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(10, testAlcancia.darCapacidadMonedas());
             Assert.AreEqual(5550, testAlcancia.darSaldoMonedas());
             CollectionAssert.AreEqual(testMonedas, testAlcancia.darMonedas());
             CollectionAssert.AreEqual(testDenominacionesMonedas, testAlcancia.darDenominacionesMonedas());
@@ -635,7 +642,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.AreEqual(4, testAlcancia.darConteoDenominacionesBilletes().Count);
             #endregion
             #endregion
-            }
+        }
         [TestMethod]
         public void testPonerMonedasDistintaDivisaEnAlcanciaConMonedas()
             {
@@ -674,7 +681,7 @@ namespace appAlcancia.Servicios.Pruebas
             }
         [TestMethod]
         public void testPonerMonedasDenominacionRechazadaEnAlcanciaConMonedas()
-            {
+        {
             #region Configurar
             poblarColeccionesEspejoCasoDenominacionesRechazadasOtrosDineros();
             testAlcancia = new clsAlcancia("COP", 12, 5, testDenominacionesMonedas, testDenominacionesBilletes);
@@ -684,10 +691,10 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.IsFalse(testAlcancia.ponerMonedas(testMonedas2));
             #region Comprobaciones Alcancía
             Assert.AreEqual("COP", testAlcancia.darDivisa());
-            Assert.AreEqual(3500, testAlcancia.darSaldoTotal());
+            Assert.AreEqual(21500, testAlcancia.darSaldoTotal());
             #endregion
             #region Comprobaciones Monedas
-            Assert.AreEqual(12, testAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(10, testAlcancia.darCapacidadMonedas());
             Assert.AreEqual(3500, testAlcancia.darSaldoMonedas());
             CollectionAssert.AreEqual(testMonedas, testAlcancia.darMonedas());
             CollectionAssert.AreEqual(testDenominacionesMonedas, testAlcancia.darDenominacionesMonedas());
@@ -695,19 +702,19 @@ namespace appAlcancia.Servicios.Pruebas
             CollectionAssert.AreEqual(testConteoDenominacionesMonedas, testAlcancia.darConteoDenominacionesMonedas());
             foreach (clsMoneda testMoneda in testAlcancia.darMonedas())
                 Assert.AreEqual(testAlcancia, testMoneda.darAlcancia());
-            foreach (clsMoneda tesMoneda in testMonedas2)
+            foreach (clsMoneda testMoneda in testMonedas2)
                 Assert.IsNull(testMoneda.darAlcancia());
             #endregion
             #region Comprobaciones Billetes
-            Assert.AreEqual(5, testAlcancia.darCapacidadBilletes());
-            Assert.AreEqual(0, testAlcancia.darSaldoBilletes());
-            Assert.AreEqual(0, testAlcancia.darBilletes().Count);
+            Assert.AreEqual(10, testAlcancia.darCapacidadBilletes());
+            Assert.AreEqual(18000, testAlcancia.darSaldoBilletes());
+            Assert.AreEqual(4, testAlcancia.darBilletes().Count);
             Assert.AreEqual(4, testAlcancia.darDenominacionesBilletes().Count);
             Assert.AreEqual(4, testAlcancia.darSaldoDenominacionesBilletes().Count);
             Assert.AreEqual(4, testAlcancia.darConteoDenominacionesBilletes().Count);
             #endregion
             #endregion
-            }
+        }
         [TestMethod]
         public void testPonerMonedasRepetidasEnAlcanciaConMonedas()
             {
