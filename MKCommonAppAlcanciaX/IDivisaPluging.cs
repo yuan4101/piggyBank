@@ -14,7 +14,7 @@ namespace MKCommonAppAlcanciaX
     }
 
     [AttributeUsage(AttributeTargets.Class)]
-    public sealed class CIngoPlugIn : System.Attribute
+    public class CInfoPlugIn : System.Attribute
     {
         private string atrDivisa;
         private int atrTRM;

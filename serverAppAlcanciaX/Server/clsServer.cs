@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using appAlcanciaX.Dominio;
+using MKCommonAppAlcanciaX;
+using appAlcanciaX.Server.Plugins;
 
 namespace appAlcanciaX.Server
 {
@@ -19,6 +21,9 @@ namespace appAlcanciaX.Server
         bool flagServidor = true;
         clsUsuario varUsuario = null;
 
+        List<IDivisaPluging> listaDePlugins = null;
+        string listaDeDivisas;
+
         public clsServer(string prmIp, int prmPort)
         {
             atrHost = Dns.GetHostEntry(prmIp);
@@ -31,6 +36,8 @@ namespace appAlcanciaX.Server
         public void Start() 
         {
             clsSistema.darInstancia().registrarUsuario("1", "Administrador", "admin", "password");
+            
+
             while (flagServidor)
             {
                 if (flagConexion)
@@ -170,11 +177,24 @@ namespace appAlcanciaX.Server
                             Console.WriteLine("Mostrar alcancia ha fallado.\n");
                         }
                     }
+                    if (varValues[0] == "calcularListaDivisa")
+                    {
+                        clsDivisaPluginsManager varDivisaPluginsManager = new clsDivisaPluginsManager();
+                        listaDePlugins = varDivisaPluginsManager.leerExtenciones();
+                        for (int varIndice = 0; varIndice < listaDePlugins.Count; varIndice++)
+                        {
+                            if (varIndice != listaDePlugins.Count - 1)
+                                listaDeDivisas += listaDePlugins[varIndice].ToString() + "-";
+                            else
+                                listaDeDivisas += listaDePlugins[varIndice].ToString();
+                        }
+                    }
 
                     //TODO: IMPLEMENTAR PLUGIN
                     if (varValues[0] == "mostrarSaldoDifDivisa")
                     {
                         clsUsuario varUsuario = clsSistema.darInstancia().buscarUsuario(varValues[1]);
+
                         if (varUsuario != null)
                         {
                             int varSaldoMonedas = clsSistema.darInstancia().calcularSaldoMonedas();

@@ -122,6 +122,7 @@ namespace winAlcanciaX.GUI
         {
             AbrirFormulario<frmMostrarAlcancia>();
             btnRegistrarBillete.BackColor = Color.FromArgb(81, 96, 90);
+            clsClient.darInstancia().Send("calcularListaDivisa");
         }
         #endregion
         #region Procedimientos

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Plugins\clsDivisaPluginsManager.cs" />
     <Compile Include="Server\clsServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,9 +56,11 @@
       <Project>{d5c54f70-8f7c-403f-92dc-d334ea47cd45}</Project>
       <Name>libAlcanciaX</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MKCommonAppAlcanciaX\MKCommonAppAlcanciaX.csproj">
+      <Project>{b373e1f9-92f5-4f5a-8c87-75e117ba5530}</Project>
+      <Name>MKCommonAppAlcanciaX</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Plugins\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
