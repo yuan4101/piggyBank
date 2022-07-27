@@ -21,14 +21,17 @@ namespace pluginsDivisaPEN
         }
         public int CalcularSaldoDivisaBilletes(int prmSaldoBilletes)
         {
+            setValues();
             return prmSaldoBilletes / getTRM();
         }
         public int CalcularSaldoDivisaMonedas(int prmSaldoMonedas)
         {
+            setValues();
             return prmSaldoMonedas / getTRM();
         }
         public int CalcularSaldoTotal(int prmSaldoTotal)
         {
+            setValues();
             return prmSaldoTotal / getTRM();
         }
     }
