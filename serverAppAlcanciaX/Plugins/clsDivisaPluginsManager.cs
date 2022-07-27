@@ -9,9 +9,9 @@ using MKCommonAppAlcanciaX;
 
 namespace appAlcanciaX.Server.Plugins
 {
-    public class clsDivisaPluginsManager
+    public static class clsDivisaPluginsManager
     {
-        public List<IDivisaPluging> leerExtenciones() 
+        public static List<IDivisaPluging> leerExtensiones() 
         {
             var ListPlugins = new List<IDivisaPluging>();
             //Lee el DLL del directorio

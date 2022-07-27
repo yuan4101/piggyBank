@@ -13,6 +13,7 @@ namespace MKCommonAppAlcanciaX
         int CalcularSaldoDivisaMonedas(int prmSaldoMonedas);
         int CalcularSaldoDivisaBilletes(int prmSaldoBilletes);
         int CalcularSaldoTotal(int prmSaldoTotal);
+        string getDivisa();
     }
 
     [AttributeUsage(AttributeTargets.Class)]
