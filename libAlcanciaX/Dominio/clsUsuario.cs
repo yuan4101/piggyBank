@@ -58,6 +58,24 @@ namespace appAlcanciaX.Dominio
                 return true;
             return false;
         }
+        public int calcularSaldoMonedas()
+        {
+            int varSaldo = 0;
+            foreach (clsMoneda varItem in atrMonedas)
+            {
+                varSaldo += varItem.darDenominacion();
+            }
+            return varSaldo;
+        }
+        public int calcularSaldoBilletes()
+        {
+            int varSaldo = 0;
+            foreach (clsBillete varItem in atrBilletes)
+            {
+                varSaldo += varItem.darDenominacion();
+            }
+            return varSaldo;
+        }
         #endregion
         #region 
 

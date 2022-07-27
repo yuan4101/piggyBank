@@ -200,11 +200,11 @@ namespace appAlcanciaX.Server
 
                         foreach (var varPlugin in listaDePlugins)
                         {
-                            if (varValues[1] == varPlugin.getDivisa())
+                            if (varValues[2] == varPlugin.getDivisa())
                             {
-                                int varSaldoMonedas = varPlugin.CalcularSaldoDivisaMonedas(clsSistema.darInstancia().calcularSaldoMonedas());
-                                int varSaldoBilletes = varPlugin.CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
-                                int varSaldoTotal = varPlugin.CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
+                                int varSaldoMonedas = varPlugin.CalcularSaldoDivisaMonedas(varUsuario.calcularSaldoMonedas());
+                                int varSaldoBilletes = varPlugin.CalcularSaldoDivisaBilletes(varUsuario.calcularSaldoBilletes());
+                                int varSaldoTotal = varPlugin.CalcularSaldoTotal(varUsuario.calcularSaldoMonedas() + varUsuario.calcularSaldoBilletes());
 
                                 atrSocketClient.Send(toByte("1," + varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
 
