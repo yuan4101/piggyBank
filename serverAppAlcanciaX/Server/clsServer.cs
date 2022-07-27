@@ -191,35 +191,30 @@ namespace appAlcanciaX.Server
                         atrSocketClient.Send(toByte(listaDeDivisas));
                     }
 
-                    //TODO: IMPLEMENTAR PLUGIN
                     if (varValues[0] == "mostrarSaldoDifDivisa")
                     {
                         clsUsuario varUsuario = clsSistema.darInstancia().buscarUsuario(varValues[1]);
 
-                        if (varUsuario != null && varValues[1] == "USD")
+                        if (varUsuario == null)
+                            break;
+
+                        foreach (var varPlugin in listaDePlugins)
                         {
-                            int varSaldoMonedas = listaDePlugins[0].CalcularSaldoDivisaMonedas(clsSistema.darInstancia().calcularSaldoMonedas());
-                            int varSaldoBilletes = listaDePlugins[0].CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
-                            int varSaldoTotal = listaDePlugins[0].CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
+                            if (varValues[1] == varPlugin.getDivisa())
+                            {
+                                int varSaldoMonedas = varPlugin.CalcularSaldoDivisaMonedas(clsSistema.darInstancia().calcularSaldoMonedas());
+                                int varSaldoBilletes = varPlugin.CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
+                                int varSaldoTotal = varPlugin.CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
 
-                            atrSocketClient.Send(toByte("1," + varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
+                                atrSocketClient.Send(toByte("1," + varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
 
-                            Console.WriteLine("Mostrar saldo completado.\n");
-                        }
-                        else if (varUsuario != null && varValues[1] == "PEN")
-                        {
-                            int varSaldoMonedas = listaDePlugins[1].CalcularSaldoDivisaMonedas(clsSistema.darInstancia().calcularSaldoMonedas());
-                            int varSaldoBilletes = listaDePlugins[1].CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
-                            int varSaldoTotal = listaDePlugins[1].CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
-
-                            atrSocketClient.Send(toByte("1," + varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
-
-                            Console.WriteLine("Mostrar saldo completado.\n");
-                        }
-                        else
-                        {
-                            atrSocketClient.Send(toByte("0, Mostrar saldo ha fallado"));
-                            Console.WriteLine("Mostrar saldo ha fallado.\n");
+                                Console.WriteLine("Mostrar saldo completado.\n");
+                            }
+                            else
+                            {
+                                atrSocketClient.Send(toByte("0, Mostrar saldo ha fallado"));
+                                Console.WriteLine("Mostrar saldo ha fallado.\n");
+                            }
                         }
                     }
 
