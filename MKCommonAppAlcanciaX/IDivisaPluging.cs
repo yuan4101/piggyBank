@@ -8,6 +8,8 @@ namespace MKCommonAppAlcanciaX
 {
     public interface IDivisaPluging
     {
+        void setValues();
+        void setValues(string prmDivisa, int prmTRM);
         int CalcularSaldoDivisaMonedas(int prmSaldoMonedas);
         int CalcularSaldoDivisaBilletes(int prmSaldoBilletes);
         int CalcularSaldoTotal(int prmSaldoTotal);
@@ -19,11 +21,19 @@ namespace MKCommonAppAlcanciaX
         private string atrDivisa;
         private int atrTRM;
 
-        public string darDivisa() 
+        public void setDivisa(string prmDivisa)
+        {
+            atrDivisa = prmDivisa;
+        }
+        public void setTRM(int prmTRM)
+        {
+            atrTRM = prmTRM;
+        }
+        public string getDivisa() 
         {
             return atrDivisa;
         }
-        public int darTRM() 
+        public int getTRM() 
         {
             return atrTRM;
         }
