@@ -9,30 +9,24 @@ namespace pluginsDivisaPEN
 {
     public class clsPEN : CInfoPlugIn, IDivisaPluging
     {
-        public void setValues()
+        float varTRM;
+        public void setValores()
         {
-            setDivisa("PEN");
-            setTRM(1129);
+            AtrDivisa = "PEN";
+            AtrTRM = 1129;
+            varTRM = AtrTRM;
         }
-        public void setValues(string prmDivisa, int prmTRM)
+        public float CalcularSaldoDivisaBilletes(int prmSaldoBilletes)
         {
-            setDivisa(prmDivisa);
-            setTRM(prmTRM);
+            return prmSaldoBilletes / varTRM;
         }
-        public int CalcularSaldoDivisaBilletes(int prmSaldoBilletes)
+        public float CalcularSaldoDivisaMonedas(int prmSaldoMonedas)
         {
-            setValues();
-            return prmSaldoBilletes / getTRM();
+            return prmSaldoMonedas / varTRM;
         }
-        public int CalcularSaldoDivisaMonedas(int prmSaldoMonedas)
+        public float CalcularSaldoTotal(int prmSaldoTotal)
         {
-            setValues();
-            return prmSaldoMonedas / getTRM();
-        }
-        public int CalcularSaldoTotal(int prmSaldoTotal)
-        {
-            setValues();
-            return prmSaldoTotal / getTRM();
+            return prmSaldoTotal / varTRM;
         }
     }
 }

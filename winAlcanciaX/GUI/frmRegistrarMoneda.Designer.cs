@@ -101,6 +101,7 @@
             this.txbDenominacion.Name = "txbDenominacion";
             this.txbDenominacion.Size = new System.Drawing.Size(200, 20);
             this.txbDenominacion.TabIndex = 80;
+            this.txbDenominacion.Text = "500";
             // 
             // txbAño
             // 
@@ -109,6 +110,7 @@
             this.txbAño.Name = "txbAño";
             this.txbAño.Size = new System.Drawing.Size(200, 20);
             this.txbAño.TabIndex = 78;
+            this.txbAño.Text = "1999";
             // 
             // txbIdentificador
             // 
@@ -117,6 +119,7 @@
             this.txbIdentificador.Name = "txbIdentificador";
             this.txbIdentificador.Size = new System.Drawing.Size(200, 20);
             this.txbIdentificador.TabIndex = 77;
+            this.txbIdentificador.Text = "1";
             // 
             // txbDivisa
             // 
@@ -125,6 +128,7 @@
             this.txbDivisa.Name = "txbDivisa";
             this.txbDivisa.Size = new System.Drawing.Size(200, 20);
             this.txbDivisa.TabIndex = 76;
+            this.txbDivisa.Text = "COP";
             // 
             // lblAño
             // 

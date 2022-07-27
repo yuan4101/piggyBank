@@ -43,10 +43,10 @@ namespace winAlcanciaX.GUI
         {
             string varDataSend = "mostrarSaldoDifDivisa" + "," + atrIdentificador + "," + cbxDivisas.Text;
             clsClient.darInstancia().Send(varDataSend);
-            string[] varReceive = clsClient.darInstancia().Receive().Split(',');
-            label11.Text = "Saldo total monedas: " + varReceive[0];
-            label8.Text = "Saldo total billetes: " + varReceive[1];
-            label7.Text = "Saldo total: " + varReceive[2];
+            string[] varReceive = clsClient.darInstancia().Receive().Split('.');
+            label11.Text = "Saldo total monedas: " + varReceive[1];
+            label8.Text = "Saldo total billetes: " + varReceive[2];
+            label7.Text = "Saldo total: " + varReceive[3];
         }
     }
 }

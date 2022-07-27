@@ -183,10 +183,11 @@ namespace appAlcanciaX.Server
                         listaDePlugins = clsDivisaPluginsManager.leerExtensiones();
                         for (int varIndice = 0; varIndice < listaDePlugins.Count; varIndice++)
                         {
-                            if (varIndice != listaDePlugins.Count - 1)
-                                listaDeDivisas += listaDePlugins[varIndice].ToString() + ",";
+                            listaDePlugins[varIndice].setValores();
+                            if (varIndice <= listaDePlugins.Count - 1)
+                                listaDeDivisas += listaDePlugins[varIndice].getDivisa() + ",";
                             else
-                                listaDeDivisas += listaDePlugins[varIndice].ToString();
+                                listaDeDivisas += listaDePlugins[varIndice].getDivisa(); 
                         }
                         atrSocketClient.Send(toByte(listaDeDivisas));
                     }
@@ -200,20 +201,16 @@ namespace appAlcanciaX.Server
 
                         foreach (var varPlugin in listaDePlugins)
                         {
+                            varPlugin.setValores();
                             if (varValues[2] == varPlugin.getDivisa())
                             {
-                                int varSaldoMonedas = varPlugin.CalcularSaldoDivisaMonedas(varUsuario.calcularSaldoMonedas());
-                                int varSaldoBilletes = varPlugin.CalcularSaldoDivisaBilletes(varUsuario.calcularSaldoBilletes());
-                                int varSaldoTotal = varPlugin.CalcularSaldoTotal(varUsuario.calcularSaldoMonedas() + varUsuario.calcularSaldoBilletes());
+                                float varSaldoMonedas = varPlugin.CalcularSaldoDivisaMonedas(clsSistema.darInstancia().calcularSaldoMonedas());
+                                float varSaldoBilletes = varPlugin.CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
+                                float varSaldoTotal = varPlugin.CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
 
-                                atrSocketClient.Send(toByte("1," + varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
+                                atrSocketClient.Send(toByte("1." + varSaldoMonedas + "." + varSaldoBilletes + "." + varSaldoTotal));
 
                                 Console.WriteLine("Mostrar saldo completado.\n");
-                            }
-                            else
-                            {
-                                atrSocketClient.Send(toByte("0, Mostrar saldo ha fallado"));
-                                Console.WriteLine("Mostrar saldo ha fallado.\n");
                             }
                         }
                     }

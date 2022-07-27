@@ -63,6 +63,7 @@
             this.txbDia.Name = "txbDia";
             this.txbDia.Size = new System.Drawing.Size(200, 20);
             this.txbDia.TabIndex = 63;
+            this.txbDia.Text = "4";
             // 
             // txbAño
             // 
@@ -71,6 +72,7 @@
             this.txbAño.Name = "txbAño";
             this.txbAño.Size = new System.Drawing.Size(200, 20);
             this.txbAño.TabIndex = 62;
+            this.txbAño.Text = "1999";
             // 
             // txbSerial
             // 
@@ -79,6 +81,7 @@
             this.txbSerial.Name = "txbSerial";
             this.txbSerial.Size = new System.Drawing.Size(200, 20);
             this.txbSerial.TabIndex = 61;
+            this.txbSerial.Text = "10";
             // 
             // txbDivisa
             // 
@@ -87,6 +90,7 @@
             this.txbDivisa.Name = "txbDivisa";
             this.txbDivisa.Size = new System.Drawing.Size(200, 20);
             this.txbDivisa.TabIndex = 60;
+            this.txbDivisa.Text = "COP";
             // 
             // lblDia
             // 
@@ -197,6 +201,7 @@
             this.txbDenominacion.Name = "txbDenominacion";
             this.txbDenominacion.Size = new System.Drawing.Size(200, 20);
             this.txbDenominacion.TabIndex = 68;
+            this.txbDenominacion.Text = "5000";
             // 
             // txbMes
             // 
@@ -205,6 +210,7 @@
             this.txbMes.Name = "txbMes";
             this.txbMes.Size = new System.Drawing.Size(200, 20);
             this.txbMes.TabIndex = 69;
+            this.txbMes.Text = "11";
             // 
             // frmRegistrarBillete
             // 
