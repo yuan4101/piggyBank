@@ -5,9 +5,15 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winAlcanciaX", "winAlcanciaX\winAlcanciaX.csproj", "{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerAppAlcanciaX", "Server-AppAlcancia\ServerAppAlcanciaX.csproj", "{5F790C6A-21E8-4617-B405-F487E8F85A49}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libAlcanciaX", "libAlcanciaX\libAlcanciaX.csproj", "{D5C54F70-8F7C-403F-92DC-D334EA47CD45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKCommonAppAlcanciaX", "MKCommonAppAlcanciaX\MKCommonAppAlcanciaX.csproj", "{B373E1F9-92F5-4F5A-8C87-75E117BA5530}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pluginsDivisaUSD", "pluginsDivisaUSD\pluginsDivisaUSD.csproj", "{2D195056-81F9-4374-B116-6C3B2135A6F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "serverAppAlcanciaX", "serverAppAlcanciaX\serverAppAlcanciaX.csproj", "{5F790C6A-21E8-4617-B405-F487E8F85A49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pluginsDivisaPEN", "pluginsDivisaPEN\pluginsDivisaPEN.csproj", "{A3487D3E-ADBE-4B47-89A1-9A023F975DF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +25,26 @@ Global
 		{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B373E1F9-92F5-4F5A-8C87-75E117BA5530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B373E1F9-92F5-4F5A-8C87-75E117BA5530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B373E1F9-92F5-4F5A-8C87-75E117BA5530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B373E1F9-92F5-4F5A-8C87-75E117BA5530}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D195056-81F9-4374-B116-6C3B2135A6F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D195056-81F9-4374-B116-6C3B2135A6F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D195056-81F9-4374-B116-6C3B2135A6F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D195056-81F9-4374-B116-6C3B2135A6F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3487D3E-ADBE-4B47-89A1-9A023F975DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3487D3E-ADBE-4B47-89A1-9A023F975DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3487D3E-ADBE-4B47-89A1-9A023F975DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3487D3E-ADBE-4B47-89A1-9A023F975DF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

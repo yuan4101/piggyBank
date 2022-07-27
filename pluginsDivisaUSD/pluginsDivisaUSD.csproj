@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5F790C6A-21E8-4617-B405-F487E8F85A49}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>appAlcanciaX.Server</RootNamespace>
-    <AssemblyName>serverAlcanciaX</AssemblyName>
+    <ProjectGuid>{2D195056-81F9-4374-B116-6C3B2135A6F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>pluginsDivisaUSD</RootNamespace>
+    <AssemblyName>pluginsDivisaUSD</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,17 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Server\clsServer.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\libAlcanciaX\libAlcanciaX.csproj">
-      <Project>{d5c54f70-8f7c-403f-92dc-d334ea47cd45}</Project>
-      <Name>libAlcanciaX</Name>
+    <ProjectReference Include="..\MKCommonAppAlcanciaX\MKCommonAppAlcanciaX.csproj">
+      <Project>{b373e1f9-92f5-4f5a-8c87-75e117ba5530}</Project>
+      <Name>MKCommonAppAlcanciaX</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
