@@ -188,6 +188,7 @@ namespace appAlcanciaX.Server
                             else
                                 listaDeDivisas += listaDePlugins[varIndice].ToString();
                         }
+                        atrSocketClient.Send(toByte(listaDeDivisas));
                     }
 
                     //TODO: IMPLEMENTAR PLUGIN

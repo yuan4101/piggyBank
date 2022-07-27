@@ -7,6 +7,7 @@ namespace winAlcanciaX.GUI
     public partial class frmMostrarAlcancia : Form
     {
         string atrIdentificador;
+        string atrDivisasDisponibles;
         public frmMostrarAlcancia()
         {
             InitializeComponent();
@@ -31,8 +32,12 @@ namespace winAlcanciaX.GUI
             lblSaldoBilletes.Text = "Saldo total billetes: " + varReceive[7];
             lblSaldoTotal.Text = "Saldo total: " + varReceive[8];
 
-            btnMostrarDivisaD.Enabled = true;
+            clsClient.darInstancia().Send("calcularListaDivisa");
+            atrDivisasDisponibles = clsClient.darInstancia().Receive();
 
+            btnMostrarDivisaD.Enabled = true;
+            cbxDivisas.Enabled = true;
+            cbxDivisas.Items.AddRange(atrDivisasDisponibles.Split(','));
         }
         private void btnMostrarDivisaD_Click(object sender, EventArgs e)
         {

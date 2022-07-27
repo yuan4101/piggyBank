@@ -265,6 +265,7 @@
             // 
             // cbxDivisas
             // 
+            this.cbxDivisas.Enabled = false;
             this.cbxDivisas.FormattingEnabled = true;
             this.cbxDivisas.Location = new System.Drawing.Point(95, 318);
             this.cbxDivisas.Name = "cbxDivisas";
