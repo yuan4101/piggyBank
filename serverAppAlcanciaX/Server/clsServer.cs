@@ -177,14 +177,14 @@ namespace appAlcanciaX.Server
                             Console.WriteLine("Mostrar alcancia ha fallado.\n");
                         }
                     }
+
                     if (varValues[0] == "calcularListaDivisa")
                     {
-                        clsDivisaPluginsManager varDivisaPluginsManager = new clsDivisaPluginsManager();
-                        listaDePlugins = varDivisaPluginsManager.leerExtenciones();
+                        listaDePlugins = clsDivisaPluginsManager.leerExtensiones();
                         for (int varIndice = 0; varIndice < listaDePlugins.Count; varIndice++)
                         {
                             if (varIndice != listaDePlugins.Count - 1)
-                                listaDeDivisas += listaDePlugins[varIndice].ToString() + "-";
+                                listaDeDivisas += listaDePlugins[varIndice].ToString() + ",";
                             else
                                 listaDeDivisas += listaDePlugins[varIndice].ToString();
                         }
@@ -195,13 +195,24 @@ namespace appAlcanciaX.Server
                     {
                         clsUsuario varUsuario = clsSistema.darInstancia().buscarUsuario(varValues[1]);
 
-                        if (varUsuario != null)
+                        if (varUsuario != null && varValues[1] == "USD")
                         {
-                            int varSaldoMonedas = clsSistema.darInstancia().calcularSaldoMonedas();
-                            int varSaldoBilletes = clsSistema.darInstancia().calcularSaldoBilletes();
-                            int varSaldoTotal = varSaldoMonedas + varSaldoBilletes;
+                            int varSaldoMonedas = listaDePlugins[0].CalcularSaldoDivisaMonedas(clsSistema.darInstancia().calcularSaldoMonedas());
+                            int varSaldoBilletes = listaDePlugins[0].CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
+                            int varSaldoTotal = listaDePlugins[0].CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
 
-                            atrSocketClient.Send(toByte("1, Mostrar saldo completado"));
+                            atrSocketClient.Send(toByte("1," + varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
+
+                            Console.WriteLine("Mostrar saldo completado.\n");
+                        }
+                        else if (varUsuario != null && varValues[1] == "PEN")
+                        {
+                            int varSaldoMonedas = listaDePlugins[1].CalcularSaldoDivisaMonedas(clsSistema.darInstancia().calcularSaldoMonedas());
+                            int varSaldoBilletes = listaDePlugins[1].CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
+                            int varSaldoTotal = listaDePlugins[1].CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
+
+                            atrSocketClient.Send(toByte("1," + varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
+
                             Console.WriteLine("Mostrar saldo completado.\n");
                         }
                         else
