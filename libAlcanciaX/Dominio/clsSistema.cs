@@ -37,6 +37,14 @@ namespace appAlcanciaX.Dominio
         {
             return atrAlcancias;
         }
+        public List<clsMoneda> darMonedas() 
+        {
+            return atrMonedas;
+        }
+        public List<clsBillete> darBilletes() 
+        {
+            return atrBilletes;
+        }
         #endregion
         #region CRUDS
         #region Registrador
@@ -184,6 +192,24 @@ namespace appAlcanciaX.Dominio
                     return varBillete;
             }
             return null;
+        }
+        public int calcularSaldoMonedas() 
+        {
+            int varSaldo = 0;
+            foreach (clsMoneda varItem in atrMonedas)
+            {
+                varSaldo += varItem.darDenominacion();
+            }
+            return varSaldo;
+        }
+        public int calcularSaldoBilletes()
+        {
+            int varSaldo = 0;
+            foreach (clsBillete varItem in atrBilletes)
+            {
+                varSaldo += varItem.darDenominacion();
+            }
+            return varSaldo;
         }
         #endregion
         #region Testing

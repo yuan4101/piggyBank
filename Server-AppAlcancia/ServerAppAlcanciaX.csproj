@@ -51,11 +51,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libAlcanciaX.csproj">
+    <ProjectReference Include="..\libAlcanciaX\libAlcanciaX.csproj">
       <Project>{d5c54f70-8f7c-403f-92dc-d334ea47cd45}</Project>
       <Name>libAlcanciaX</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

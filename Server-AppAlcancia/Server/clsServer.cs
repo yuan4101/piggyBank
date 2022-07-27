@@ -128,6 +128,69 @@ namespace appAlcanciaX.Server
                         }
                     }
 
+                    if (varValues[0] == "mostrarAlcancia")
+                    {
+                        clsUsuario varUsuario = clsSistema.darInstancia().buscarUsuario(varValues[1]);
+                        if (varUsuario != null)
+                        {
+                            clsAlcancia varAlcancia = clsSistema.darInstancia().buscarAlcancia(varValues[1]);
+                            string varDivisa = varAlcancia.darDivisa();
+                            int varCapMonedas = varAlcancia.darCapacidadMonedas();
+                            int varCapBilletes = varAlcancia.darCapacidadBilletes();
+                            List<int> varDenominacionesM = varAlcancia.darDenominacionesMonedas();
+                            string varDenominacionesMoneda = "";
+                            for (int varIndice = 0; varIndice < varDenominacionesM.Count; varIndice++)
+                            {
+                                if (varIndice != varDenominacionesM.Count - 1)
+                                    varDenominacionesMoneda += varDenominacionesM[varIndice].ToString() + "-";
+                                else
+                                    varDenominacionesMoneda += varDenominacionesM[varIndice].ToString();
+                            }
+                            List<int> varDenominacionesB = varAlcancia.darDenominacionesBilletes();
+                            string varDenominacionesBilletes = "";
+                            for (int varIndice = 0; varIndice < varDenominacionesB.Count; varIndice++)
+                            {
+                                if (varIndice != varDenominacionesB.Count - 1)
+                                    varDenominacionesBilletes += varDenominacionesB[varIndice].ToString() + "-";
+                                else
+                                    varDenominacionesBilletes += varDenominacionesB[varIndice].ToString();
+                            }
+
+                            int varSaldoMonedas = clsSistema.darInstancia().calcularSaldoMonedas();
+                            int varSaldoBilletes = clsSistema.darInstancia().calcularSaldoBilletes();
+                            int varSaldoTotal = varSaldoMonedas + varSaldoBilletes;
+                            atrSocketClient.Send(toByte("1," + varDivisa + "," + varCapMonedas + "," + varCapBilletes + "," + 
+                                                        varDenominacionesMoneda + "," + varDenominacionesBilletes + "," + 
+                                                        varSaldoMonedas + "," + varSaldoBilletes + "," + varSaldoTotal));
+                            Console.WriteLine("Mostrar alcancia completado.\n");
+                        }
+                        else
+                        {
+                            atrSocketClient.Send(toByte("0, Mostrar alcancia ha fallado"));
+                            Console.WriteLine("Mostrar alcancia ha fallado.\n");
+                        }
+                    }
+
+                    //TODO: IMPLEMENTAR PLUGIN
+                    if (varValues[0] == "mostrarSaldoDifDivisa")
+                    {
+                        clsUsuario varUsuario = clsSistema.darInstancia().buscarUsuario(varValues[1]);
+                        if (varUsuario != null)
+                        {
+                            int varSaldoMonedas = clsSistema.darInstancia().calcularSaldoMonedas();
+                            int varSaldoBilletes = clsSistema.darInstancia().calcularSaldoBilletes();
+                            int varSaldoTotal = varSaldoMonedas + varSaldoBilletes;
+
+                            atrSocketClient.Send(toByte("1, Mostrar saldo completado"));
+                            Console.WriteLine("Mostrar saldo completado.\n");
+                        }
+                        else
+                        {
+                            atrSocketClient.Send(toByte("0, Mostrar saldo ha fallado"));
+                            Console.WriteLine("Mostrar saldo ha fallado.\n");
+                        }
+                    }
+
                     if (varValues[0] == "close server")
                         flagServidor = false;
                 }

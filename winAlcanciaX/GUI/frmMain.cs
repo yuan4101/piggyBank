@@ -96,6 +96,9 @@ namespace winAlcanciaX.GUI
 
             if (Application.OpenForms["frmRegistrarBillete"] == null)
                 btnRegistrarBillete.BackColor = Color.FromArgb(45, 62, 64);
+
+            if (Application.OpenForms["frmMostrarAlcancia"] == null)
+                btnMostrarDatosAlcancia.BackColor = Color.FromArgb(45, 62, 64);
         }
         #endregion
         #endregion
@@ -115,6 +118,11 @@ namespace winAlcanciaX.GUI
             AbrirFormulario<frmRegistrarBillete>();
             btnRegistrarBillete.BackColor = Color.FromArgb(81, 96, 90);
         }
+        private void btnMostrarDatosAlcancia_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<frmMostrarAlcancia>();
+            btnRegistrarBillete.BackColor = Color.FromArgb(81, 96, 90);
+        }
         #endregion
         #region Procedimientos
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -128,9 +136,13 @@ namespace winAlcanciaX.GUI
             if (int.Parse(varDataReceived.Split(',')[0]) == 1)
             {
                 lblStatus.Text = varDataReceived.Split(',')[1];
-                btnIngresar.Enabled = false;
-                txbUsuario.Enabled = false;
-                txbPassword.Enabled = false;
+                btnIngresar.Visible = false;
+                lblUsuario.Visible = false;
+                lblPassword.Visible = false;
+                txbUsuario.Visible = false;
+                txbPassword.Visible = false;
+                btnMostrarDatosAlcancia.Visible = true;
+                btnMostrarDatosAlcancia.Enabled = true;
                 btnRegistrarAlcancia.Enabled = true;
                 btnRegistrarMoneda.Enabled = true;
                 btnRegistrarBillete.Enabled = true;
@@ -142,5 +154,7 @@ namespace winAlcanciaX.GUI
             } 
         }
         #endregion
+
+
     }
 }

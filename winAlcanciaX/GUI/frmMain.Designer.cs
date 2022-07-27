@@ -49,6 +49,7 @@ namespace winAlcanciaX.GUI
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.PictureBox();
+            this.btnMostrarDatosAlcancia = new System.Windows.Forms.Button();
             this.pnlContenedor.SuspendLayout();
             this.pnlForms.SuspendLayout();
             this.pnlStatus.SuspendLayout();
@@ -116,6 +117,7 @@ namespace winAlcanciaX.GUI
             // pnlBarraMenu
             // 
             this.pnlBarraMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.pnlBarraMenu.Controls.Add(this.btnMostrarDatosAlcancia);
             this.pnlBarraMenu.Controls.Add(this.btnIngresar);
             this.pnlBarraMenu.Controls.Add(this.lblPassword);
             this.pnlBarraMenu.Controls.Add(this.lblUsuario);
@@ -298,6 +300,23 @@ namespace winAlcanciaX.GUI
             this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
             this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
             // 
+            // btnMostrarDatosAlcancia
+            // 
+            this.btnMostrarDatosAlcancia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(64)))));
+            this.btnMostrarDatosAlcancia.Enabled = false;
+            this.btnMostrarDatosAlcancia.FlatAppearance.BorderSize = 0;
+            this.btnMostrarDatosAlcancia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrarDatosAlcancia.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrarDatosAlcancia.ForeColor = System.Drawing.Color.White;
+            this.btnMostrarDatosAlcancia.Location = new System.Drawing.Point(0, 387);
+            this.btnMostrarDatosAlcancia.Name = "btnMostrarDatosAlcancia";
+            this.btnMostrarDatosAlcancia.Size = new System.Drawing.Size(150, 45);
+            this.btnMostrarDatosAlcancia.TabIndex = 9;
+            this.btnMostrarDatosAlcancia.Text = "Mostrar datos alcancia";
+            this.btnMostrarDatosAlcancia.UseVisualStyleBackColor = false;
+            this.btnMostrarDatosAlcancia.Visible = false;
+            this.btnMostrarDatosAlcancia.Click += new System.EventHandler(this.btnMostrarDatosAlcancia_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,6 +369,7 @@ namespace winAlcanciaX.GUI
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Panel pnlStatus;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnMostrarDatosAlcancia;
     }
 }
 

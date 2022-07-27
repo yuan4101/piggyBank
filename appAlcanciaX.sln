@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libAlcanciaX", "libAlcanciaX.csproj", "{D5C54F70-8F7C-403F-92DC-D334EA47CD45}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winAlcanciaX", "winAlcanciaX\winAlcanciaX.csproj", "{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerAppAlcanciaX", "Server-AppAlcancia\ServerAppAlcanciaX.csproj", "{5F790C6A-21E8-4617-B405-F487E8F85A49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libAlcanciaX", "libAlcanciaX\libAlcanciaX.csproj", "{D5C54F70-8F7C-403F-92DC-D334EA47CD45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2D7D4E7-71E5-40A7-A46B-6892A9316F6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F790C6A-21E8-4617-B405-F487E8F85A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C54F70-8F7C-403F-92DC-D334EA47CD45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
