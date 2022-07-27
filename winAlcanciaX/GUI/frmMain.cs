@@ -121,7 +121,7 @@ namespace winAlcanciaX.GUI
         private void btnMostrarDatosAlcancia_Click(object sender, EventArgs e)
         {
             AbrirFormulario<frmMostrarAlcancia>();
-            btnRegistrarBillete.BackColor = Color.FromArgb(81, 96, 90);
+            btnMostrarDatosAlcancia.BackColor = Color.FromArgb(81, 96, 90);
         }
         #endregion
         #region Procedimientos
