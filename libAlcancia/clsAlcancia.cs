@@ -157,8 +157,44 @@ namespace appAlcancia.Dominio
         }
         public bool ponerBilletes(List<clsBillete> prmLista)
         {
-            //TO DO
-            atrBilletes = prmLista;
+            if (!verificaDivisaLista(prmLista))
+                return false;
+            if (atrDivisa == null && atrCapacidadMonedas == 0 && atrCapacidadBilletes == 0 && atrDenominacionesMonedas.Count == 0 && atrDenominacionesBilletes.Count == 0)
+            {
+                atrDivisa = prmLista[0].darDivisa();
+                List<int> listDenominaciones = new List<int>();
+                foreach (clsBillete varItem in prmLista)
+                {
+                    listDenominaciones.Add(varItem.darDenominacion());
+                }
+                atrDenominacionesBilletes = listDenominaciones.Distinct().ToList();
+                foreach (int varItem in atrDenominacionesBilletes)
+                {
+                    atrConteoDenominacionesBilletes.Add(0);
+                    atrSaldoDenominacionesBilletes.Add(0);
+                }
+                atrCapacidadBilletes = prmLista.Count();
+                foreach (clsBillete varMoneda in prmLista)
+                    if (!consignar(varMoneda))
+                    {
+                        atrCapacidadBilletes = 0;
+                        atrDivisa = null;
+                        atrDenominacionesBilletes = new List<int>();
+                        return false;
+                    }
+            }
+            else
+            {
+                if (atrBilletes.Count + prmLista.Count > atrCapacidadBilletes)
+                    return false;
+                if (!verificarDenominacion(prmLista))
+                    return false;
+                foreach (clsBillete varMoneda in prmLista)
+                    if (!consignar(varMoneda))
+                    {
+                        return false;
+                    }
+            }
             return true;
         }
         public bool ponerCapacidadMonedas(int prmValor)
@@ -234,7 +270,36 @@ namespace appAlcancia.Dominio
             }
             return varFlag;
         }
+        private bool verificarDenominacion(List<clsBillete> prmLista)
+        {
+            List<int> listDenominaciones = new List<int>();
+            foreach (clsBillete varItem in prmLista)
+            {
+                if (clsParametrizador.esValidoRangoDenominacion(varItem.darDenominacion()))
+                    listDenominaciones.Add(varItem.darDenominacion());
+                else
+                    return false;
+            }
+            listDenominaciones = listDenominaciones.Distinct().ToList();
+            bool varFlag = true;
+            foreach (int varItem in listDenominaciones)
+            {
+                if (!atrDenominacionesMonedas.Contains(varItem))
+                    varFlag = false;
+            }
+            return varFlag;
+        }
         private bool verificaDivisaLista(List<clsMoneda> prmLista)
+        {
+            string varDivisa = prmLista[0].darDivisa();
+            for (int varIndex = 0; varIndex < prmLista.Count(); varIndex++)
+            {
+                if (!prmLista[varIndex].darDivisa().Equals(varDivisa))
+                    return false;
+            }
+            return true;
+        }
+        private bool verificaDivisaLista(List<clsBillete> prmLista)
         {
             string varDivisa = prmLista[0].darDivisa();
             for (int varIndex = 0; varIndex < prmLista.Count(); varIndex++)
