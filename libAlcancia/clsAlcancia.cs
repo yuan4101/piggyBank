@@ -199,7 +199,7 @@ namespace appAlcancia.Dominio
         }
         public bool ponerCapacidadMonedas(int prmValor)
         {
-            if (clsParametrizador.esValidoRangoCapMonedas(prmValor) && prmValor > atrMonedas.Count)
+            if (clsParametrizador.esValidoRangoCapMonedas(prmValor) && prmValor >= atrMonedas.Count)
             {
                 atrCapacidadMonedas = prmValor;
                 return true;
@@ -225,19 +225,35 @@ namespace appAlcancia.Dominio
         public bool ponerDenominacionesMonedas(List<int> prmColeccion)
         {
             List<int> listMonedasExistentes = new List<int>();
+            List<int> listConteoExistentes = new List<int>();
+            List<int> listSaldoExistentes = new List<int>();
             for (int varIndice = 0; varIndice < atrDenominacionesMonedas.Count; varIndice++)
             {
-                if (atrConteoDenominacionesMonedas[varIndice] > 0)
+                int varConteo = atrConteoDenominacionesMonedas[varIndice];
+                if (varConteo > 0)
+                {
                     listMonedasExistentes.Add(atrDenominacionesMonedas[varIndice]);
+                    listConteoExistentes.Add(varConteo);
+                    listSaldoExistentes.Add(atrSaldoDenominacionesMonedas[varIndice]);
+                }
             }
             foreach (int varItem in listMonedasExistentes)
             {
                 if (!prmColeccion.Contains(varItem))
-                {
                     return false;
+            }
+            foreach (var varItem in prmColeccion)
+            {
+                if (!listMonedasExistentes.Contains(varItem))
+                {
+                    listMonedasExistentes.Add(varItem);
+                    listConteoExistentes.Add(0);
+                    listSaldoExistentes.Add(0);
                 }
             }
-            atrDenominacionesMonedas = prmColeccion;
+            atrDenominacionesMonedas = listMonedasExistentes;
+            atrConteoDenominacionesMonedas = listConteoExistentes;
+            atrSaldoDenominacionesMonedas = listSaldoExistentes;
             return true;
         }
         public bool ponerDenominacionesBilletes(List<int> prmColeccion)
@@ -462,6 +478,7 @@ namespace appAlcancia.Dominio
         {
             atrCapacidadMonedas = 22;
             atrCapacidadBilletes = 11;
+            atrDivisa = "COP";
 
             #region Universo Monedas
             atrDenominacionesMonedas = new List<int> { 100, 200, 500 };
@@ -513,6 +530,15 @@ namespace appAlcancia.Dominio
             #endregion
 
             atrSaldoTotal = 22700;
+        }
+        public bool CompararMonedas(List<clsMoneda> prmList)
+        {
+            if (prmList.Count != prmList.Count) { return false; }
+
+            for (int varIndice = 0; varIndice < prmList.Count; varIndice++)
+                if (prmList[varIndice].CompareTo(atrMonedas[varIndice]) != 0) { return false; }
+
+            return true;
         }
         #endregion
         #endregion
