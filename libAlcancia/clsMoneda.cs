@@ -109,7 +109,7 @@ namespace appAlcancia.Dominio
         public int CompareTo(object prmMoneda)
         {
             clsMoneda varObjeto = (clsMoneda)Convert.ChangeType(prmMoneda, typeof(clsMoneda));
-            if (atrIDO == varObjeto.atrIDO && atrDivisa == varObjeto.atrDivisa && atrDenominacion == varObjeto.atrDenominacion && atrAño == varObjeto.atrAño)
+            if (atrIDO == varObjeto.atrIDO && atrDivisa == varObjeto.atrDivisa && atrDenominacion == varObjeto.atrDenominacion && atrAño == varObjeto.atrAño && atrAlcancia == varObjeto.atrAlcancia)
                 return 0;
             if (atrDenominacion > varObjeto.atrDenominacion)
                 return 1;

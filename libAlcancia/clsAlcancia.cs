@@ -172,7 +172,7 @@ namespace appAlcancia.Dominio
         }
         public bool ponerCapacidadBilletes(int prmValor)
         {
-            if (clsParametrizador.esValidoRangoCapBilletes(prmValor) && prmValor > atrBilletes.Count)
+            if (clsParametrizador.esValidoRangoCapBilletes(prmValor) && prmValor >= atrBilletes.Count)
             {
                 atrCapacidadBilletes = prmValor;
                 return true;
@@ -248,7 +248,7 @@ namespace appAlcancia.Dominio
         #region Transacciones
         public bool consignar(clsMoneda prmItem)
         {
-            if (atrMonedas.Count() == atrCapacidadMonedas && prmItem.darDivisa() != atrDivisa)
+            if (atrMonedas.Count() == atrCapacidadMonedas || prmItem.darDivisa() != atrDivisa)
                 return false;
 
             int varDenominacion = prmItem.darDenominacion();
@@ -275,7 +275,7 @@ namespace appAlcancia.Dominio
         }
         public bool consignar(clsBillete prmItem)
         {
-            if (atrBilletes.Count() == atrCapacidadBilletes)
+            if (atrBilletes.Count() == atrCapacidadBilletes || prmItem.darDivisa() != atrDivisa)
                 return false;
 
             int varDenominacion =  prmItem.darDenominacion();
@@ -355,7 +355,7 @@ namespace appAlcancia.Dominio
         {
             atrDivisa = "COP";
             #region Monedas
-            atrCapacidadMonedas = 10;
+            atrCapacidadMonedas = 12; //Cambio: 10 a 12
             atrDenominacionesMonedas = new List<int> { 1000, 500, 200, 100, 50 };
             atrSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100, 0 };
             atrConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1, 0 };

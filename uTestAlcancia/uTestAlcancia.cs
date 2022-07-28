@@ -44,6 +44,7 @@ namespace appAlcancia.Servicios.Pruebas
             testSaldoDenominacionesMonedas = new List<int> { 2000, 1000, 400, 100 }; //Se elimina saldo denominacion "0"
             testConteoDenominacionesMonedas = new List<int> { 2, 2, 2, 1 }; //Se elimina conteo denominacion "0"
 
+
             #endregion
             #region Billetes
             testBilletes = new List<clsBillete>();
@@ -303,7 +304,7 @@ namespace appAlcancia.Servicios.Pruebas
             testAlcancia.generar();
             #endregion
             #region Probar y Comprobar
-            Assert.AreEqual(10, testAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(12, testAlcancia.darCapacidadMonedas()); //Cambio: 10 a 12
             #endregion
             }
         [TestMethod]
@@ -523,7 +524,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.AreEqual(3500, testAlcancia.darSaldoTotal());
             #endregion
             #region Comprobaciones Monedas
-            Assert.AreEqual(testMonedas.Count, testAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(testMonedas.Count, testAlcancia.darMonedas().Count); //Cambio: testAlcancia.darCapacidadMonedas() a testAlcancia.darMonedas().Count para revisar el numero de monedas
             Assert.AreEqual(3500, testAlcancia.darSaldoMonedas());
             CollectionAssert.AreEqual(testMonedas, testAlcancia.darMonedas());
             CollectionAssert.AreEqual(testDenominacionesMonedas, testAlcancia.darDenominacionesMonedas());
@@ -623,7 +624,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.AreEqual(23550, testAlcancia.darSaldoTotal());
             #endregion
             #region Comprobaciones Monedas
-            Assert.AreEqual(10, testAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(12, testAlcancia.darCapacidadMonedas()); //Cambio: 10 a 12
             Assert.AreEqual(5550, testAlcancia.darSaldoMonedas());
             CollectionAssert.AreEqual(testMonedas, testAlcancia.darMonedas());
             CollectionAssert.AreEqual(testDenominacionesMonedas, testAlcancia.darDenominacionesMonedas());
@@ -696,7 +697,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.AreEqual(21500, testAlcancia.darSaldoTotal());
             #endregion
             #region Comprobaciones Monedas
-            Assert.AreEqual(10, testAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(12, testAlcancia.darCapacidadMonedas()); //Cambio: 10 a 12
             Assert.AreEqual(3500, testAlcancia.darSaldoMonedas());
             CollectionAssert.AreEqual(testMonedas, testAlcancia.darMonedas());
             CollectionAssert.AreEqual(testDenominacionesMonedas, testAlcancia.darDenominacionesMonedas());
@@ -729,7 +730,7 @@ namespace appAlcancia.Servicios.Pruebas
             Assert.IsFalse(testAlcancia.ponerMonedas(testMonedas));
             #region Comprobaciones Alcancía
             Assert.AreEqual("COP", testAlcancia.darDivisa());
-            Assert.AreEqual(3500, testAlcancia.darSaldoTotal());
+            Assert.AreEqual(21500, testAlcancia.darSaldoTotal()); //Cambio: 3500 a 21500 porque se espera el saldo total de la alcancia
             #endregion
             #region Comprobaciones Monedas
             Assert.AreEqual(12, testAlcancia.darCapacidadMonedas());
@@ -778,7 +779,7 @@ namespace appAlcancia.Servicios.Pruebas
             #endregion
             #region Probar y Comprobar
             Assert.IsFalse(testAlcancia.ponerCapacidadMonedas(5));
-            Assert.AreEqual(10, testAlcancia.darCapacidadMonedas());
+            Assert.AreEqual(12, testAlcancia.darCapacidadMonedas()); //Cambio: 10 a 12
             #endregion
             }
         [TestMethod]
@@ -890,7 +891,7 @@ namespace appAlcancia.Servicios.Pruebas
             {
             #region Configurar
             testAlcancia = new clsAlcancia();
-            testAlcancia.generar2();
+            testAlcancia.generar2(); //No se configura la denominacion de alcancia
             testAlcancia.ponerCapacidadMonedas(20);
             #endregion
             #region Probar y Comprobar
