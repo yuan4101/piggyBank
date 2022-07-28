@@ -180,11 +180,12 @@ namespace appAlcanciaX.Server
 
                     if (varValues[0] == "calcularListaDivisa")
                     {
+                        listaDeDivisas = "";
                         listaDePlugins = clsDivisaPluginsManager.leerExtensiones();
                         for (int varIndice = 0; varIndice < listaDePlugins.Count; varIndice++)
                         {
                             listaDePlugins[varIndice].setValores();
-                            if (varIndice <= listaDePlugins.Count - 1)
+                            if (varIndice < listaDePlugins.Count - 1)
                                 listaDeDivisas += listaDePlugins[varIndice].getDivisa() + ",";
                             else
                                 listaDeDivisas += listaDePlugins[varIndice].getDivisa(); 
@@ -208,7 +209,7 @@ namespace appAlcanciaX.Server
                                 float varSaldoBilletes = varPlugin.CalcularSaldoDivisaBilletes(clsSistema.darInstancia().calcularSaldoBilletes());
                                 float varSaldoTotal = varPlugin.CalcularSaldoTotal(clsSistema.darInstancia().calcularSaldoMonedas() + clsSistema.darInstancia().calcularSaldoBilletes());
 
-                                atrSocketClient.Send(toByte("1." + varSaldoMonedas + "." + varSaldoBilletes + "." + varSaldoTotal));
+                                atrSocketClient.Send(toByte("1-" + varSaldoMonedas + "-" + varSaldoBilletes + "-" + varSaldoTotal));
 
                                 Console.WriteLine("Mostrar saldo completado.\n");
                             }
